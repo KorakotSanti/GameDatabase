@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+    <div class="container-fluid">
+        <form class="ui form" action="/game" method="POST">
+            <div class="field">
+                <label>Game Name</label>
+                <input type="text" name="gamename" placeholder="game">
+            </div>
+            <button class="ui blue big basic button">Submit</button>
+        </form>
+
+        <table style="width:100%">
+            <tr>
+                <th>Game</th>
+                <th>Quality</th>
+                <th>Maturity</th>
+                <th>Developer</th>
+                <th>Publisher</th>
+            </tr>
+        <% for(var i=0; i<games.length; i++) { %>
+            <tr>
+                <td><%= games[i]['Game'] %></td>
+                <td><%= games[i]['Quality'] %></td>
+                <td><%= games[i]['Maturity'] %></td>
+                <td><%= games[i]['Developer'] %></td>
+                <td><%= games[i]['Publisher'] %></td>
+            </tr>
+        <% } %>
+        </table>
+    </div>
+     
+<%- include("partials/footer") %>

@@ -1,0 +1,359 @@
+{
+    "publisher": [
+        {
+            "pub_id": 0,
+            "pubname":"Type-Moon",
+            "est": "1998"
+        },
+        {
+            "pub_id": 1,
+            "pubname": "Telltale Games",
+            "est": "2004"
+        },
+        {
+            "pub_id": 2,
+            "pubname": "07th Expansion",
+            "est": "2002"
+        },
+        {
+            "pub_id": 3,
+            "pubname": "Team Salvato",
+            "est": "2017"
+        },
+        {
+            "pub_id": 4,
+            "pubname": "Nintendo",
+            "est": "1916"
+        },
+        {
+            "pub_id": 5,
+            "pubname": "The Pokémon Company",
+            "est": "1998"
+        },
+        {
+            "pub_id": 6,
+            "pubname": "Plarium Global Ltd.",
+            "est": "2009"
+        },
+        {
+            "pub_id": 7,
+            "pubname": "GungHo Online Entertainment Inc.",
+            "est": "2002"
+        },
+        {
+            "pub_id": 8,
+            "pubname": "Activision",
+            "est": "1979"
+        },
+        {
+            "pub_id": 9,
+            "pubname": "Riot Games Inc.",
+            "est": "2006"
+        },
+        {
+            "pub_id": 10,
+            "pubname": "Sony Computer Entertainment, Inc.",
+            "est": "1993"
+        },
+        {
+            "pub_id": 11,
+            "pubname": "EA Sports BIG",
+            "est": "2000"
+        },
+        {
+            "pub_id": 12,
+            "pubname": "Microsoft Game Studios",
+            "est": "2002"
+        },
+        {
+            "pub_id": 13,
+            "pubname": "Psyonix",
+            "est": "2000"
+        },
+        {
+            "pub_id": 14,
+            "pubname": "Vivendi Universal",
+            "est": "1996"
+        },
+        {
+            "pub_id": 15,
+            "pubname": "Valve Corporation",
+            "est": "1996"
+        },
+        {
+            "pub_id": 16,
+            "pubname": "Epic Games",
+            "est": "1991"
+        },
+        {
+            "pub_id": 17,
+            "pubname": "Jagex Ltd. Games Studio",
+            "est": "2001"
+        },
+        {
+            "pub_id": 18,
+            "pubname": "Rockstar North",
+            "est": "2002"
+        },
+        {
+            "pub_id": 19,
+            "pubname": "Bandai Namco Entertainment",
+            "est": "2006"
+        },
+        {
+            "pub_id": 20,
+            "pubname": "Nokia",
+            "est": "1914"
+        },
+        {
+            "pub_id": 21,
+            "pubname": "Headup Games",
+            "est": "2009"
+        },
+        {
+            "pub_id": 22,
+            "pubname": "Dean 'ppy' Herbert",
+            "est": "2007"
+        },
+        {
+            "pub_id": 23,
+            "pubname": "Blizzard Entertainment",
+            "est": "1994"
+        },
+        {
+            "pub_id": 24,
+            "pubname": "2K Games",
+            "est": "2005"
+        },
+        {
+            "pub_id": 25,
+            "pubname": "Sega",
+            "est": "1960"
+        },
+        {
+            "pub_id": 26,
+            "pubname": "Electronic Arts",
+            "est": "1982"
+        },
+        {
+            "pub_id": 27,
+            "pubname": "Rockstar Games",
+            "est": "1998"
+        },
+        {
+            "pub_id": 28,
+            "pubname": "Niantic Labs",
+            "est": "2010"
+        },
+        {
+            "pub_id": 29,
+            "pubname": "Bluehole Studio",
+            "est": "2007"
+        },
+        {
+            "pub_id": 30,
+            "pubname": "Bethesda Softworks LLC",
+            "est": "1986"
+        },
+        {
+            "pub_id": 31,
+            "pubname": "Ubisoft Entertainment",
+            "est": "1986"
+        },
+        {
+            "pub_id": 32,
+            "pubname": "Mojang AB",
+            "est": "2009"
+        },
+        {
+            "pub_id": 33,
+            "pubname": "Edusoft",
+            "est": "1989"
+        },
+        {
+            "pub_id": 34,
+            "pubname": "Interplay Entertainment",
+            "est": "1983"
+        },
+        {
+            "pub_id": 35,
+            "pubname": "WB Games",
+            "est": "1993"
+        },
+        {
+            "pub_id": 36,
+            "pubname": "Hyperbolic Magnetism",
+            "est": "1997"
+        },
+        {
+            "pub_id": 37,
+            "pubname": "Starbreeze Studios AB",
+            "est": "1998"
+        },
+        {
+            "pub_id": 38,
+            "pubname": "Edmund McMillen",
+            "est": "2008"
+        },
+        {
+            "pub_id": 39,
+            "pubname": "Sony Interactive Entertainment",
+            "est": "1993"
+        },
+        {
+            "pub_id": 40,
+            "pubname": "ConcernedApe",
+            "est": "2011"
+        },
+        {
+            "pub_id": 41,
+            "pubname": ".GEARS Studios",
+            "est": "2005"
+        },
+        {
+            "pub_id": 42,
+            "pubname": "Square Enix",
+            "est": "2003"
+        },
+        {
+            "pub_id": 43,
+            "pubname": "Larian Studios",
+            "est": "1996"
+        },
+        {
+            "pub_id": 44,
+            "pubname": "Battlestate Games",
+            "est": "2012"
+        },
+        {
+            "pub_id": 45,
+            "pubname": "Nexon Co. Ltd.",
+            "est": "1994"
+        },
+        {
+            "pub_id": 46,
+            "pubname": "Halfbrick Studios",
+            "est": "2001"
+        },
+        {
+            "pub_id": 47,
+            "pubname": "Lima Sky",
+            "est": "2008"
+        },
+        {
+            "pub_id": 48,
+            "pubname": "Ndemic Creations",
+            "est": "2012"
+        },
+        {
+            "pub_id": 49,
+            "pubname": "Solebon LLC",
+            "est": "2008"
+        },
+        {
+            "pub_id": 50,
+            "pubname": "Supercell",
+            "est": "2010"
+        },
+        {
+            "pub_id": 51,
+            "pubname": "Imangi Studios",
+            "est": "2008"
+        },
+        {
+            "pub_id": 52,
+            "pubname": "King",
+            "est": "2003"
+        },
+        {
+            "pub_id": 53,
+            "pubname": "Roblox Corporation",
+            "est": "2004"
+        },
+        {
+            "pub_id": 54,
+            "pubname": "Subset Games",
+            "est": "2011"
+        },
+        {
+            "pub_id": 55,
+            "pubname": "GameOn",
+            "est": "2002"
+        },
+        {
+            "pub_id": 56,
+            "pubname": "Pearl Abyss",
+            "est": "2010"
+        },
+        {
+            "pub_id": 57,
+            "pubname": "Omgpop",
+            "est": "2006"
+        },
+        {
+            "pub_id": 58,
+            "pubname": "PopCap Games",
+            "est": "2000"
+        },
+        {
+            "pub_id": 59,
+            "pubname": "Etermax",
+            "est": "2009"
+        },
+        {
+            "pub_id": 60,
+            "pubname": "Sony Online Entertainment",
+            "est": "1995"
+        },
+        {
+            "pub_id": 61,
+            "pubname": "Daybreak Game Company",
+            "est": "1997"
+        },
+        {
+            "pub_id": 62,
+            "pubname": "Jackbox Games, Inc.",
+            "est": "1992"
+        },
+        {
+            "pub_id": 63,
+            "pubname": "5pb. Games",
+            "est": "2005"
+        },
+        {
+            "pub_id": 64,
+            "pubname": "Sekai Project",
+            "est": "2013"
+        },
+        {
+            "pub_id": 65,
+            "pubname": "Atlus",
+            "est": "1986"
+        },
+        {
+            "pub_id": 66,
+            "pubname": "Visual Arts",
+            "est": "1991"
+        },
+        {
+            "pub_id": 67,
+            "pubname": "Miniclip.com",
+            "est": "2001"
+        },
+        {
+            "pub_id": 68,
+            "pubname": "BlankMediaGames",
+            "est": "2014"
+        },
+        {
+            "pub_id": 69,
+            "pubname": "Com2uS",
+            "est": "1998"
+        },
+        {
+            "pub_id": 70,
+            "pubname": "Team Meat",
+            "est": "2008"
+        }
+    ]
+}

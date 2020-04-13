@@ -1,0 +1,564 @@
+{
+    "game_genre": [
+        {
+            "genre_id": [0, 2, 9, 24, 25],
+            "game_id": 0
+        },
+        {
+            "genre_id": [0, 2, 18],
+            "game_id": 1
+        },
+        {
+            "genre_id": [0, 1, 2, 8, 9, 24],
+            "game_id": 2
+        },
+        {
+            "genre_id": [0, 2, 9, 11],
+            "game_id": 3
+        },
+        {
+            "genre_id": [1, 13, 18, 19],
+            "game_id": 4
+        },
+        {
+            "genre_id": [1, 13, 18, 19],
+            "game_id": 5
+        },
+        {
+            "genre_id": [2, 6, 18, 26],
+            "game_id": 6
+        },
+        {
+            "genre_id": [2, 6, 18, 26],
+            "game_id": 7
+        },
+        {
+            "genre_id": [0, 7, 18],
+            "game_id": 8
+        },
+        {
+            "genre_id": [4, 6, 7],
+            "game_id": 9
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 17, 27],
+            "game_id": 10
+        },
+        {
+            "genre_id": [1, 17, 20],
+            "game_id": 11
+        },
+        {
+            "genre_id": [1, 6, 7, 18],
+            "game_id": 12
+        },
+        {
+            "genre_id": [7, 18, 20],
+            "game_id": 13
+        },
+        {
+            "genre_id": [1, 2, 7, 18, 28],
+            "game_id": 14
+        },
+        {
+            "genre_id": [1, 13, 21],
+            "game_id": 15
+        },
+        {
+            "genre_id": [4, 15],
+            "game_id": 16
+        },
+        {
+            "genre_id": [1, 3, 5, 17, 27],
+            "game_id": 17
+        },
+        {
+            "genre_id": [1, 3, 11, 13, 21],
+            "game_id": 18
+        },
+        {
+            "genre_id": [1, 17, 27],
+            "game_id": 19
+        },
+        {
+            "genre_id": [1, 17, 27],
+            "game_id": 20
+        },
+        {
+            "genre_id": [1, 7, 17, 20, 27],
+            "game_id": 21
+        },
+        {
+            "genre_id": [1, 5, 8, 10],
+            "game_id": 22
+        },
+        {
+            "genre_id": [1, 2, 6, 7, 10, 18, 26],
+            "game_id": 23
+        },
+        {
+            "genre_id": [1, 2, 5, 10, 13, 21, 26],
+            "game_id": 24
+        },
+        {
+            "genre_id": [1, 3, 17, 27],
+            "game_id": 25
+        },
+        {
+            "genre_id": [1, 6, 19],
+            "game_id": 26
+        },
+        {
+            "genre_id": [1, 2, 18, 23],
+            "game_id": 27
+        },
+        {
+            "genre_id": [15],
+            "game_id": 28
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 23, 26],
+            "game_id": 29
+        },
+        {
+            "genre_id": [1, 11, 22],
+            "game_id": 30
+        },
+        {
+            "genre_id": [1, 3, 7, 17],
+            "game_id": 31
+        },
+        {
+            "genre_id": [6, 7],
+            "game_id": 32
+        },
+        {
+            "genre_id": [1, 2, 17, 20, 27],
+            "game_id": 33
+        },
+        {
+            "genre_id": [1, 17, 20, 27],
+            "game_id": 34
+        },
+        {
+            "genre_id": [1, 17, 20, 27],
+            "game_id": 35
+        },
+        {
+            "genre_id": [1, 3, 7],
+            "game_id": 36
+        },
+        {
+            "genre_id": [1, 3, 7],
+            "game_id": 37
+        },
+        {
+            "genre_id": [1, 3, 6, 10, 17],
+            "game_id": 38
+        },
+        {
+            "genre_id": [1, 2, 6, 9, 18],
+            "game_id": 39
+        },
+        {
+            "genre_id": [1, 2, 6, 7],
+            "game_id": 40
+        },
+        {
+            "genre_id": [10, 12],
+            "game_id": 41
+        },
+        {
+            "genre_id": [10, 21],
+            "game_id": 42
+        },
+        {
+            "genre_id": [1, 2, 6, 18, 26, 28],
+            "game_id": 43
+        },
+        {
+            "genre_id": [13],
+            "game_id": 44
+        },
+        {
+            "genre_id": [1, 13],
+            "game_id": 45
+        },
+        {
+            "genre_id": [7, 12],
+            "game_id": 46
+        },
+        {
+            "genre_id": [7, 12],
+            "game_id": 47
+        },
+        {
+            "genre_id": [7, 10, 12],
+            "game_id": 48
+        },
+        {
+            "genre_id": [7, 10, 12],
+            "game_id": 49
+        },
+        {
+            "genre_id": [1, 2, 4, 6, 10, 18, 23],
+            "game_id": 50
+        },
+        {
+            "genre_id": [1, 2, 6, 18, 26],
+            "game_id": 51
+        },
+        {
+            "genre_id": [1, 2, 3, 4, 17, 23],
+            "game_id": 52
+        },
+        {
+            "genre_id": [1, 2, 6, 8, 9, 10, 18, 26, 28],
+            "game_id": 53
+        },
+        {
+            "genre_id": [1, 2, 6, 8, 9, 10, 18, 26, 28],
+            "game_id": 54
+        },
+        {
+            "genre_id": [1, 2, 6, 8, 9, 10, 18, 26, 28],
+            "game_id": 55
+        },
+        {
+            "genre_id": [1, 2, 5, 6, 10, 26],
+            "game_id": 56
+        },
+        {
+            "genre_id": [1, 2, 5, 6, 10, 26],
+            "game_id": 57
+        },
+        {
+            "genre_id": [1, 2, 7, 12, 18, 19],
+            "game_id": 58
+        },
+        {
+            "genre_id": [1, 2, 3, 17],
+            "game_id": 59
+        },
+        {
+            "genre_id": [1, 2, 8, 11, 17, 26],
+            "game_id": 60
+        },
+        {
+            "genre_id": [1, 3, 8, 9, 17],
+            "game_id": 61
+        },
+        {
+            "genre_id": [1, 3, 8, 17],
+            "game_id": 62
+        },
+        {
+            "genre_id": [1, 2, 23],
+            "game_id": 63
+        },
+        {
+            "genre_id": [1, 2, 8, 10, 17, 26],
+            "game_id": 64
+        },
+        {
+            "genre_id": [1, 2, 10, 18, 23, 26],
+            "game_id": 65
+        },
+        {
+            "genre_id": [1, 7, 18, 20, 27],
+            "game_id": 66
+        },
+        {
+            "genre_id": [1, 2, 3],
+            "game_id": 67
+        },
+        {
+            "genre_id": [2, 7, 8, 10, 11, 12, 15, 18, 26],
+            "game_id": 68
+        },
+        {
+            "genre_id": [1, 3, 6, 7, 8, 17, 18],
+            "game_id": 69
+        },
+        {
+            "genre_id": [1, 3, 6, 7, 8, 18, 28],
+            "game_id": 70
+        },
+        {
+            "genre_id": [1, 3, 5, 6, 10, 17, 18, 28],
+            "game_id": 71
+        },
+        {
+            "genre_id": [1, 3, 5, 6, 10, 17, 18, 28],
+            "game_id": 72
+        },
+        {
+            "genre_id": [1, 3, 6, 7, 20, 27],
+            "game_id": 73
+        },
+        {
+            "genre_id": [1, 17, 20, 27],
+            "game_id": 74
+        },
+        {
+            "genre_id": [1, 19],
+            "game_id": 75
+        },
+        {
+            "genre_id": [11, 22],
+            "game_id": 76
+        },
+        {
+            "genre_id": [1, 2, 4, 6, 23, 28],
+            "game_id": 77
+        },
+        {
+            "genre_id": [1, 19],
+            "game_id": 78
+        },
+        {
+            "genre_id": [1, 19],
+            "game_id": 79
+        },
+        {
+            "genre_id": [1, 8, 9],
+            "game_id": 80
+        },
+        {
+            "genre_id": [1, 23],
+            "game_id": 81
+        },
+        {
+            "genre_id": [1, 23],
+            "game_id": 82
+        },
+        {
+            "genre_id": [1, 2, 5, 6, 9, 11, 24],
+            "game_id": 83
+        },
+        {
+            "genre_id": [1, 2, 3, 5, 6, 26],
+            "game_id": 84
+        },
+        {
+            "genre_id": [1, 2, 24, 26],
+            "game_id": 85
+        },
+        {
+            "genre_id": [6, 10, 11, 12, 18],
+            "game_id": 86
+        },
+        {
+            "genre_id": [1, 2, 3, 9, 17, 18, 24, 28],
+            "game_id": 87
+        },
+        {
+            "genre_id": [3, 7, 12, 18, 27, 28],
+            "game_id": 88
+        },
+        {
+            "genre_id": [1, 15],
+            "game_id": 89
+        },
+        {
+            "genre_id": [1, 2, 4, 5, 8, 10, 23],
+            "game_id": 90
+        },
+        {
+            "genre_id": [1, 2, 3, 10, 18, 23, 26, 28],
+            "game_id": 91
+        },
+        {
+            "genre_id": [1, 3, 13, 21],
+            "game_id": 92
+        },
+        {
+            "genre_id": [1, 2, 6, 7, 11, 18, 26, 28],
+            "game_id": 93
+        },
+        {
+            "genre_id": [1, 2, 6, 7, 11, 18, 26, 28],
+            "game_id": 94
+        },
+        {
+            "genre_id": [1, 2, 3, 17, 18, 27, 28],
+            "game_id": 95
+        },
+        {
+            "genre_id": [1, 2, 6, 18, 26],
+            "game_id": 96
+        },
+        {
+            "genre_id": [1, 6, 10, 12, 17, 20, 27],
+            "game_id": 97
+        },
+        {
+            "genre_id": [1, 2, 6, 10, 18, 26],
+            "game_id": 98
+        },
+        {
+            "genre_id": [1, 3, 18, 23, 28],
+            "game_id": 99
+        },
+        {
+            "genre_id": [1, 2, 6, 18, 23],
+            "game_id": 100
+        },
+        {
+            "genre_id": [1, 2, 19],
+            "game_id": 101
+        },
+        {
+            "genre_id": [1, 15, 23],
+            "game_id": 102
+        },
+        {
+            "genre_id": [8, 23],
+            "game_id": 103
+        },
+        {
+            "genre_id": [3, 7, 9, 12, 20],
+            "game_id": 104
+        },
+        {
+            "genre_id": [4, 7, 11, 29],
+            "game_id": 105
+        },
+        {
+            "genre_id": [7, 18],
+            "game_id": 106
+        },
+        {
+            "genre_id": [1, 7],
+            "game_id": 107
+        },
+        {
+            "genre_id": [1, 7, 18, 28],
+            "game_id": 108
+        },
+        {
+            "genre_id": [1, 2, 15, 23],
+            "game_id": 109
+        },
+        {
+            "genre_id": [4, 15],
+            "game_id": 110
+        },
+        {
+            "genre_id": [1, 2, 6, 18, 19, 28],
+            "game_id": 111
+        },
+        {
+            "genre_id": [1, 2, 3, 10, 12],
+            "game_id": 112
+        },
+        {
+            "genre_id": [1],
+            "game_id": 113
+        },
+        {
+            "genre_id": [3, 7, 11, 12],
+            "game_id": 114
+        },
+        {
+            "genre_id": [1, 2, 6, 7, 10, 12, 18, 28],
+            "game_id": 115
+        },
+        {
+            "genre_id": [1, 2, 6, 7, 10, 12, 18, 28],
+            "game_id": 116
+        },
+        {
+            "genre_id": [4],
+            "game_id": 117
+        },
+        {
+            "genre_id": [1, 4, 7, 8, 20],
+            "game_id": 118
+        },
+        {
+            "genre_id": [1, 30],
+            "game_id": 119
+        },
+        {
+            "genre_id": [1, 2, 6, 18],
+            "game_id": 120
+        },
+        {
+            "genre_id": [1, 2, 5, 8, 17],
+            "game_id": 121
+        },
+        {
+            "genre_id": [7, 11, 30],
+            "game_id": 122
+        },
+        {
+            "genre_id": [1, 13, 19, 23],
+            "game_id": 123
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 18],
+            "game_id": 124
+        },
+        {
+            "genre_id": [0, 2, 3, 6, 8, 18, 28],
+            "game_id": 125
+        },
+        {
+            "genre_id": [0, 2, 24],
+            "game_id": 126
+        },
+        {
+            "genre_id": [0, 1, 2, 6, 7, 9, 20],
+            "game_id": 127
+        },
+        {
+            "genre_id": [0, 2, 24],
+            "game_id": 128
+        },
+        {
+            "genre_id": [0, 1, 2, 3],
+            "game_id": 129
+        },
+        {
+            "genre_id": [1, 7, 11],
+            "game_id": 130
+        },
+        {
+            "genre_id": [6, 7, 8, 11, 31],
+            "game_id": 131
+        },
+        {
+            "genre_id": [6, 7, 18],
+            "game_id": 132
+        },
+        {
+            "genre_id": [7, 18],
+            "game_id": 133
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 7, 18],
+            "game_id": 134
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 7, 18],
+            "game_id": 135
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 20],
+            "game_id": 136
+        },
+        {
+            "genre_id": [1, 2, 3, 6, 7],
+            "game_id": 137
+        },
+        {
+            "genre_id": [1, 2, 5, 8, 9],
+            "game_id": 138
+        },
+        {
+            "genre_id": [1, 2, 11, 23],
+            "game_id": 139
+        }
+    ]
+}

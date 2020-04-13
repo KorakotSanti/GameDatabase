@@ -1,0 +1,128 @@
+{
+    "platform": [
+        {
+            "platformid": 0,
+            "pname": "Xbox OG"
+        },
+        {
+            "platformid": 1,
+            "pname": "Xbox 360"
+        },
+        {
+            "platformid": 2,
+            "pname": "Xbox One"
+        },
+        {
+            "platformid": 3,
+            "pname": "PS1"
+        },
+        {
+            "platformid": 4,
+            "pname": "PS2"
+        },
+        {
+            "platformid": 5,
+            "pname": "PS3"
+        },
+        {
+            "platformid": 6,
+            "pname": "PS4"
+        },
+        {
+            "platformid": 7,
+            "pname": "PC"
+        },
+        {
+            "platformid": 8,
+            "pname": "Nintendo Wii"
+        },
+        {
+            "platformid": 9,
+            "pname": "Nintendo Switch"
+        },
+        {
+            "platformid": 10,
+            "pname": "IOS"
+        },
+        {
+            "platformid": 11,
+            "pname": "Android"
+        },
+        {
+            "platformid": 12,
+            "pname": "Mac"
+        },
+        {
+            "platformid": 13,
+            "pname": "Nintendo GameCube"
+        },
+        {
+            "platformid": 14,
+            "pname": "Nintendo Game Boy Advance"
+        },
+        {
+            "platformid": 15,
+            "pname": "Linux"
+        },
+        {
+            "platformid": 16,
+            "pname": "Web Browser"
+        },
+        {
+            "platformid": 17,
+            "pname": "Mobile"
+        },
+        {
+            "platformid": 18,
+            "pname": "Nintendo 3DS"
+        },
+        {
+            "platformid": 19,
+            "pname": "Nintendo DS"
+        },
+        {
+            "platformid": 20,
+            "pname": "Nintendo Wii U"
+        },
+        {
+            "platformid": 21,
+            "pname": "PlayStation Vita"
+        },
+        {
+            "platformid": 22,
+            "pname": "PSP"
+        },
+        {
+            "platformid": 23,
+            "pname": "Nintendo 64"
+        },
+        {
+            "platformid": 24,
+            "pname": "SteamVR"
+        },
+        {
+            "platformid": 25,
+            "pname": "PlayStation VR"
+        },
+        {
+            "platformid": 26,
+            "pname": "Oculus VR"
+        },
+        {
+            "platformid": 27,
+            "pname": "Windows Mixed Reality"
+        },
+        {
+            "platformid": 28,
+            "pname": "Windows Phone"
+        },
+        {
+            "platformid": 29,
+            "pname": "Nintendo DSi"
+        },
+        {
+            "platformid": 30,
+            "pname": "Amazon Fire TV"
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "genre": [
+        {
+            "id": 0,
+            "gname": "Visual Novel"
+        },
+        {
+            "id": 1,
+            "gname": "Action"
+        },
+        {
+            "id": 2,
+            "gname": "Adventure"
+        },
+        {
+            "id": 3,
+            "gname": "Sci-Fi"
+        },
+        {
+            "id": 4,
+            "gname": "Puzzle"
+        },
+        {
+            "id": 5,
+            "gname": "Shooter"
+        },
+        {
+            "id": 6,
+            "gname": "Role-Playing"
+        },
+        {
+            "id": 7,
+            "gname": "Strategy"
+        },
+        {
+            "id": 8,
+            "gname": "Survival"
+        },
+        {
+            "id": 9,
+            "gname": "Horror"
+        },
+        {
+            "id": 10,
+            "gname": "Sandbox"
+        },
+        {
+            "id": 11,
+            "gname": "Indie"
+        },
+        {
+            "id": 12,
+            "gname": "Simulation"
+        },
+        {
+            "id": 13,
+            "gname": "Sport"
+        },
+        {
+            "id": 14,
+            "gname": "Board Games"
+        },
+        {
+            "id": 15,
+            "gname": "Arcade"
+        },
+        {
+            "id": 16,
+            "gname": "Rhythm"
+        },
+        {
+            "id": 17,
+            "gname": "First Person Shooter"
+        },
+        {
+            "id": 18,
+            "gname": "Fantasy"
+        },
+        {
+            "id": 19,
+            "gname": "Fighting"
+        },
+        {
+            "id": 20,
+            "gname": "Tactical"
+        },
+        {
+            "id": 21,
+            "gname": "Racing"
+        },
+        {
+            "id": 22,
+            "gname": "Music"
+        },
+        {
+            "id": 23,
+            "gname": "Platform"
+        },
+        {
+            "id": 24,
+            "gname": "Drama"
+        },
+        {
+            "id": 25,
+            "gname": "Thriller"
+        },
+        {
+            "id": 26,
+            "gname": "Open world"
+        },
+        {
+            "id": 27,
+            "gname": "Warfare"
+        },
+        {
+            "id": 28,
+            "gname": "Historical"
+        },
+        {
+            "id": 29,
+            "gname": "Text"
+        },
+        {
+            "id": 30,
+            "gname": "Quiz/Trivia"
+        },
+        {
+            "id": 31,
+            "gname": "Mystery"
+        }
+    ]
+}

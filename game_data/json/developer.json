@@ -1,0 +1,474 @@
+{
+    "dev": [
+        {
+            "dev_id": 1,
+            "devname": "Type-Moon",
+            "est": "1998"
+        },
+        {
+            "dev_id": 2,
+            "devname": "Telltale Games",
+            "est": "2004"
+        },
+        {
+            "dev_id": 3,
+            "devname": "07th Expansion",
+            "est": "2002"
+        },
+        {
+            "dev_id": 4,
+            "devname": "Team Salvato",
+            "est": "2017"
+        },
+        {
+            "dev_id": 5,
+            "devname": "Sora Ltd.",
+            "est": "2005"
+        },
+        {
+            "dev_id": 6,
+            "devname": "Game Freak",
+            "est": "1989"
+        },
+        {
+            "dev_id": 7,
+            "devname": "Plarium Global Ltd.",
+            "est": "2009"
+        },
+        {
+            "dev_id": 8,
+            "devname": "GungHo Online Entertainment, Inc.",
+            "est": "2002"
+        },
+        {
+            "dev_id": 9,
+            "devname": "Bungie",
+            "est": "1991"
+        },
+        {
+            "dev_id": 10,
+            "devname": "Riot Games Inc.",
+            "est": "2006"
+        },
+        {
+            "dev_id": 11,
+            "devname": "SIE Santa Monica Studio",
+            "est": "1999"
+        },
+        {
+            "dev_id": 12,
+            "devname": "EA Canada",
+            "est": "1983"
+        },
+        {
+            "dev_id": 13,
+            "devname": "Arika Co., Ltd.",
+            "est": "1995"
+        },
+        {
+            "dev_id": 14,
+            "devname": "Psyonix",
+            "est": "2000"
+        },
+        {
+            "dev_id": 15,
+            "devname": "Valve Corporation",
+            "est": "1996"
+        },
+        {
+            "dev_id": 16,
+            "devname": "Epic Games",
+            "est": "1991"
+        },
+        {
+            "dev_id": 17,
+            "devname": "Jagex Ltd. Games Studio",
+            "est": "2001"
+        },
+        {
+            "dev_id": 17,
+            "devname": "Rockstar North",
+            "est": "2002"
+        },
+        {
+            "dev_id": 19,
+            "devname": "Dimps Corporation",
+            "est": "2000"
+        },
+        {
+            "dev_id": 20,
+            "devname": "Toys for Bob",
+            "est": "1989"
+        },
+        {
+            "dev_id": 21,
+            "devname": "Nokia",
+            "est": "1914"
+        },
+        {
+            "dev_id": 22,
+            "devname": "Re-Logic",
+            "est": "2011"
+        },
+        {
+            "dev_id": 23,
+            "devname": "Dean 'ppy' Herbert",
+            "est": "2007"
+        },
+        {
+            "dev_id": 24,
+            "devname": "Blizzard Entertainment",
+            "est": "1994"
+        },
+        {
+            "dev_id": 25,
+            "devname": "n-Space",
+            "est": "1994"
+        },
+        {
+            "dev_id": 26,
+            "devname": "Treyarch",
+            "est": "1996"
+        },
+        {
+            "dev_id": 27,
+            "devname": "Infinity Ward",
+            "est": "2002"
+        },
+        {
+            "dev_id": 28,
+            "devname": "Gearbox Software",
+            "est": "1999"
+        },
+        {
+            "dev_id": 29,
+            "devname": "Intelligent Systems Co., Ltd.",
+            "est": "1986"
+        },
+        {
+            "dev_id": 30,
+            "devname": "Nintendo EAD",
+            "est": "1980"
+        },
+        {
+            "dev_id": 31,
+            "devname": "Playground Games",
+            "est": "2010"
+        },
+        {
+            "dev_id": 32,
+            "devname": "CD Projekt RED",
+            "est": "2002"
+        },
+        {
+            "dev_id": 33,
+            "devname": "Neversoft Entertainment",
+            "est": "1994"
+        },
+        {
+            "dev_id": 34,
+            "devname": "Black Box Games",
+            "est": "1998"
+        },
+        {
+            "dev_id": 35,
+            "devname": "Maxis",
+            "est": "1987"
+        },
+        {
+            "dev_id": 36,
+            "devname": "The Sims Studio",
+            "est": "2006"
+        },
+        {
+            "dev_id": 37,
+            "devname": "Nintendo EPD",
+            "est": "2015"
+        },
+        {
+            "dev_id": 38,
+            "devname": "FromSoftware",
+            "est": "1986"
+        },
+        {
+            "dev_id": 39,
+            "devname": "Rockstar Studios",
+            "est": "1998"
+        },
+        {
+            "dev_id": 40,
+            "devname": "The Pokemon Company",
+            "est": "1998"
+        },
+        {
+            "dev_id": 41,
+            "devname": "Respawn Entertainment",
+            "est": "2010"
+        },
+        {
+            "dev_id": 42,
+            "devname": "PUBG Corp",
+            "est": "2017"
+        },
+        {
+            "dev_id": 43,
+            "devname": "id Software",
+            "est": "1991"
+        },
+        {
+            "dev_id": 44,
+            "devname": "Nintendo EAD Tokyo",
+            "est": "2002"
+        },
+        {
+            "dev_id": 45,
+            "devname": "Ubisoft Montreal",
+            "est": "1997"
+        },
+        {
+            "dev_id": 46,
+            "devname": "Mojang AB",
+            "est": "2009"
+        },
+        {
+            "dev_id": 47,
+            "devname": "Black Isle Studios",
+            "est": "1996"
+        },
+        {
+            "dev_id": 48,
+            "devname": "Bethesda Game Studios",
+            "est": "2001"
+        },
+        {
+            "dev_id": 49,
+            "devname": "Firaxis Games",
+            "est": "1996"
+        },
+        {
+            "dev_id": 50,
+            "devname": "NetherRealm Studios",
+            "est": "2010"
+        },
+        {
+            "dev_id": 51,
+            "devname": "Hyperbolic Magnetism",
+            "est": "1997"
+        },
+        {
+            "dev_id": 52,
+            "devname": "Behaviour Interactive",
+            "est": "1997"
+        },
+        {
+            "dev_id": 53,
+            "devname": "Edmund McMillen",
+            "est": "2008"
+        },
+        {
+            "dev_id": 54,
+            "devname": "Guerrilla Games",
+            "est": "2000"
+        },
+        {
+            "dev_id": 55,
+            "devname": "Insomniac Games",
+            "est": "1994"
+        },
+        {
+            "dev_id": 56,
+            "devname": "ConcernedApe",
+            "est": "2011"
+        },
+        {
+            "dev_id": 57,
+            "devname": "Irrational Games",
+            "est": "1997"
+        },
+        {
+            "dev_id": 58,
+            "devname": ".GEARS Studios",
+            "est": "2005"
+        },
+        {
+            "dev_id": 59,
+            "devname": "Crystal Dynamics",
+            "est": "1992"
+        },
+        {
+            "dev_id": 60,
+            "devname": "Larian Studios",
+            "est": "1996"
+        },
+        {
+            "dev_id": 61,
+            "devname": "MachineGames",
+            "est": "2009"
+        },
+        {
+            "dev_id": 62,
+            "devname": "Monolith Productions",
+            "est": "1994"
+        },
+        {
+            "dev_id": 63,
+            "devname": "Battlestate Games",
+            "est": "2012"
+        },
+        {
+            "dev_id": 64,
+            "devname": "Vicarious Visions",
+            "est": "1990"
+        },
+        {
+            "dev_id": 65,
+            "devname": "Wizet",
+            "est": "1999"
+        },
+        {
+            "dev_id": 66,
+            "devname": "CyberConnect2 Co., Ltd.",
+            "est": "2001"
+        },
+        {
+            "dev_id": 67,
+            "devname": "Halfbrick Studios",
+            "est": "2001"
+        },
+        {
+            "dev_id": 68,
+            "devname": "Lima Sky",
+            "est": "2008"
+        },
+        {
+            "dev_id": 69,
+            "devname": "Ndemic Creations",
+            "est": "2012"
+        },
+        {
+            "dev_id": 70,
+            "devname": "Gabriele Cirulli",
+            "est": "2014"
+        },
+        {
+            "dev_id": 71,
+            "devname": "Supercell",
+            "est": "2010"
+        },
+        {
+            "dev_id": 72,
+            "devname": "Imangi Studios",
+            "est": "2008"
+        },
+        {
+            "dev_id": 73,
+            "devname": "King",
+            "est": "2003"
+        },
+        {
+            "dev_id": 74,
+            "devname": "Roblox Corporation",
+            "est": "2004"
+        },
+        {
+            "dev_id": 75,
+            "devname": "Subset Games",
+            "est": "2011"
+        },
+        {
+            "dev_id": 76,
+            "devname": "Pearl Abyss",
+            "est": "2010"
+        },
+        {
+            "dev_id": 77,
+            "devname": "Omgpop",
+            "est": "2006"
+        },
+        {
+            "dev_id": 78,
+            "devname": "PopCap Games",
+            "est": "2000"
+        },
+        {
+            "dev_id": 79,
+            "devname": "Etermax",
+            "est": "2009"
+        },
+        {
+            "dev_id": 80,
+            "devname": "Sony Online Entertainment",
+            "est": "1995"
+        },
+        {
+            "dev_id": 81,
+            "devname": "Daybreak Game Company",
+            "est": "1997"
+        },
+        {
+            "dev_id": 82,
+            "devname": "Jackbox Games, Inc.",
+            "est": "1992"
+        },
+        {
+            "dev_id": 83,
+            "devname": "HAL Laboratory",
+            "est": "1980"
+        },
+        {
+            "dev_id": 84,
+            "devname": "5pb. Games",
+            "est": "2005"
+        },
+        {
+            "dev_id": 85,
+            "devname": "Key",
+            "est": "1998"
+        },
+        {
+            "dev_id": 86,
+            "devname": "Atlus",
+            "est": "1986"
+        },
+        {
+            "dev_id": 87,
+            "devname": "Matheus Valadares",
+            "est": "2015"
+        },
+        {
+            "dev_id": 88,
+            "devname": "BlankMediaGames",
+            "est": "2014"
+        },
+        {
+            "dev_id": 89,
+            "devname": "Com2uS",
+            "est": "1998"
+        },
+        {
+            "dev_id": 90,
+            "devname": "DeNA",
+            "est": "1999"
+        },
+        {
+            "dev_id": 91,
+            "devname": "Spike ChunSoft",
+            "est": "2012"
+        },
+        {
+            "dev_id": 92,
+            "devname": "Genius Sonority",
+            "est": "2002"
+        },
+        {
+            "dev_id": 93,
+            "devname": "Naughty Dog",
+            "est": "1989"
+        },
+        {   
+            "dev_id": 94,
+            "devname": "Team Meat",
+            "est": "2008"
+        }
+    ]
+}
