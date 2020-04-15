@@ -1,11 +1,18 @@
 <%- include('partials/header') %>
     <div class="container-fluid">
-        <form class="ui form" action="/game" method="POST">
-            <div class="field">
+        <form action="/game" method="POST">
+            <div>
                 <label>Game Name</label>
                 <input type="text" name="gamename" placeholder="game">
+                <select name="genre">
+                    <option value="">Genre</option>
+                    <option value="adventure">adventure</option>
+                </select>
+                <select name="platform">
+                    <option value="all">ALL</option>
+                </select>
+                <button>Submit</button>
             </div>
-            <button class="ui blue big basic button">Submit</button>
         </form>
 
         <table style="width:100%">

@@ -8,6 +8,7 @@ router.get("/game", (req,res) => {
     if (game_title != null) {
         result = sql.query(`SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView WHERE Game LIKE ${game_title};`, (err,rows,fields) => {
             if (!err) {
+                game_title=null;
                 res.render("game", {games:rows})
             } else {
                 console.log(err);
@@ -26,6 +27,7 @@ router.get("/game", (req,res) => {
 
 router.post("/game", (req,res) => {
     game_title = "'%" + req.body.gamename + "%'";
+    console.log(req.body.genreo);
     res.redirect("/game");
 });
 
@@ -134,23 +136,26 @@ router.put("/game/:id", (req,res) => {
         if (rows.length==0) {
             sql.query(`INSERT INTO developer (dev_name) VALUES ('${input.dev}')`);
         }
-    });
 
-    sql.query(`SELECT * FROM publisher WHERE pub_name='${input.pub}'`, (err, rows, fields) => {
-        if (rows.length==0) {
-            sql.query(`INSERT INTO developer (pub_name) VALUES ('${input.pub}')`);
-        }
+        sql.query(`SELECT * FROM publisher WHERE pub_name='${input.pub}'`, (err, rows, fields) => {
+            if (rows.length==0) {
+                sql.query(`INSERT INTO developer (pub_name) VALUES ('${input.pub}')`);
+                console.log("adding");
+            }
+            sql.query(`UPDATE game SET game_name='${input.gamename}', q_rating=${Number(input.quality)}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name='${input.dev}'), pub_id=(SELECT pub_id FROM publisher WHERE pub_name='${input.pub}'), image='${input.image}' WHERE game_id=${req.params.id}`, (err,rows,fields) => {
+                if (!err) {
+                    res.redirect(`/game/${req.params.id}`);
+                }
+                else {
+                    console.log(err);
+                    res.redirect(`/game/${req.params.id}`);
+                }
+            });
+        });
     });
-
-    sql.query(`UPDATE game SET game_name='${input.gamename}', q_rating=${Number(input.quality)}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name='${input.dev}'), pub_id=(SELECT pub_id FROM publisher WHERE pub_name='${input.pub}'), image='${input.image}' WHERE game_id=${req.params.id}`, (err,rows,fields) => {
-        if (!err) {
-            res.redirect(`/game/${req.params.id}`);
-        }
-        else {
-            console.log(err);
-            res.redirect(`/game/${req.params.id}`);
-        }
-    });
+    
+    
 });
+
 
 module.exports = router;
