@@ -1,14 +1,36 @@
 <%- include('partials/header') %>
 <div class="container-fluid">
     <div>
+        <form action="/game/<%= game['gameid'] %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <div><button><a href="/game/<%= game['gameid'] %>/edit">EDIT</a></button></div>
         <h1><%= game['gamename'] %></h1>
+        <img src=<%= game['image'] %>>
     </div>
     <div>
         <h2>Developer: <%= game['Developer'] %></h2>
         <h2>Publisher: <%= game['Publisher'] %></h2>
     </div>
     <div>
-        <h3>Quality:</h3>
+        <h3>Quality: <%= game['Quality'] %></h3>
+        <h3>Maturity: <%= game['Maturity'] %></h3>
+    </div>
+    <div>
+        <ul style="list-style-type: none;">
+            Platforms:
+            <% for (var i=0; i < game['platforms'].length; i++) { %>
+                <li><%= game['platforms'][i] %></li>
+            <% } %>
+        </ul>
+    </div>
+    <div>
+        <ul style="list-style-type: none;">
+            Genres:
+            <% for (var i=0; i < game['genres'].length; i++) { %>
+                <li><%= game['genres'][i] %></li>
+            <% } %>
+        </ul>
     </div>
 </div>
 <%- include("partials/footer") %>

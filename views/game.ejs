@@ -15,16 +15,14 @@
                 <th>Maturity</th>
                 <th>Developer</th>
                 <th>Publisher</th>
-                <th>More Info</th>
             </tr>
         <% for(var i=0; i<games.length; i++) { %>
             <tr>
-                <td><%= games[i]['Game'] %></td>
+                <td><a href="/game/<%= games[i]['game_id'] %>"><%= games[i]['Game'] %></a></td>
                 <td><%= games[i]['Quality'] %></td>
                 <td><%= games[i]['Maturity'] %></td>
                 <td><%= games[i]['Developer'] %></td>
                 <td><%= games[i]['Publisher'] %></td>
-                <td><a href="/game/<%= games[i]['game_id'] %>">more</a></td>
             </tr>
         <% } %>
         </table>

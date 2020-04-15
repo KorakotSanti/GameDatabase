@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+<div class="container-fluid">
+    <div>
+        Edit <%= game['gamename'] %>
+    </div>
+    <form action="/game/<%= game['gameid'] %>?_method=PUT" method="POST">
+        <div>
+            <label>Game:</label>
+            <input type="text" name="gamename" value="<%= game['gamename'] %>">
+        </div>
+        <div>
+            <label>Developer</label>
+            <input type="text" name="dev" value="<%= game['Developer'] %>">
+        </div>
+        <div>
+            <label>Publisher</label>
+            <input type="text" name="pub" value="<%= game['Publisher'] %>">
+        </div>
+        <div>
+            <label>Quality Rating</label>
+            <input type="text" name="quality" value="<%= game['Quality'] %>">
+        </div>
+        <div>
+            <label>Maturity Rating</label>
+            <input type="text" name="maturity" value="<%= game['Maturity'] %>">
+        </div>
+        <div>
+            <label>Image URL</label>
+            <input type="text" name="image" value="<%= game['image'] %>">
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
+<%- include("partials/footer") %>
