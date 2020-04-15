@@ -14,7 +14,7 @@ class Game:
         cursor = connection.cursor()
 
 
-        sql_q = """ insert into game
+        sql_q = """ insert into game (game_id, game_name, q_rating, m_rating, dev_id, pub_id)
                     values
                     (%s, %s, %s, %s, %s, %s)"""
         val = []
