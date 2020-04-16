@@ -5,11 +5,16 @@
                 <label>Game Name</label>
                 <input type="text" name="gamename" placeholder="game">
                 <select name="genre">
-                    <option value="">Genre</option>
-                    <option value="adventure">adventure</option>
+                    <option value="(SELECT genre_name FROM genre)">Genre</option>
+                    <% for (var i=0; i<genres.length; i++) { %>
+                        <option value=<%= genres[i]['genre_name'] %>><%= genres[i]['genre_name'] %></option>
+                    <% } %>
                 </select>
                 <select name="platform">
-                    <option value="all">ALL</option>
+                    <option value="(SELECT platform_name FROM platform)">Platform</option>
+                    <% for (var i=0; i<platforms.length; i++) { %>
+                        <option value=<%= platforms[i]['platform_name'] %>><%= platforms[i]['platform_name'] %></option>
+                    <% } %>
                 </select>
                 <button>Submit</button>
             </div>

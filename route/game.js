@@ -2,22 +2,43 @@ const express = require('express');
 const router = express.Router();
 const sql = require('../db/database.js');
 let game_title = null;
+let genreList, platformList;
+
+// get list of genres
+sql.query('SELECT genre_name from genre', (err, rows, fields) => {
+    if (!err) {
+        genreList=rows;
+    }
+    else {
+        console.log(err);
+    }
+});
+
+// get list of platforms
+sql.query('SELECT platform_name from platform', (err, rows, fields) => {
+    if (!err) {
+        platformList=rows;
+    }
+    else {
+        console.log(err);
+    }
+});
 
 router.get("/game", (req,res) => {
-    let result = null;
+
     if (game_title != null) {
-        result = sql.query(`SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView WHERE Game LIKE ${game_title};`, (err,rows,fields) => {
+        sql.query(`SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView WHERE Game LIKE ${game_title};`, (err,rows,fields) => {
             if (!err) {
                 game_title=null;
-                res.render("game", {games:rows})
+                res.render("game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
             }
         });
     } else {
-        result = sql.query("SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView;", (err,rows,fields) => {
+        sql.query("SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView;", (err,rows,fields) => {
             if (!err) {
-                res.render("game", {games:rows})
+                res.render("game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
             }
