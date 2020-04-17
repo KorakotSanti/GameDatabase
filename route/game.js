@@ -29,7 +29,7 @@ sql.query('SELECT platform_name from platform', (err, rows, fields) => {
 router.get("/game", (req,res) => {
 
     if (game_title != null) {
-        sql.query(`SELECT DISTINCT(TheView.game_id), Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
+        sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
                     INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
                     INNER JOIN genre on gg.genre_id=genre.genre_id
                     INNER JOIN game_platform as gp on gp.game_id=TheView.game_id
@@ -48,7 +48,7 @@ router.get("/game", (req,res) => {
             }
         });
     } else {
-        sql.query(`SELECT DISTINCT(TheView.game_id), Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
+        sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer, 'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
                     FROM TheView
                     INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
                     INNER JOIN genre on gg.genre_id=genre.genre_id
@@ -86,7 +86,7 @@ router.post("/game", (req,res) => {
 
 router.get("/game/:id", (req,res) => {
     result = sql.query(
-        `select TheView.game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
+        `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
         from TheView 
         left outer join game_genre on TheView.game_id=game_genre.game_id
         left outer join genre on game_genre.genre_id=genre.genre_id
@@ -138,7 +138,7 @@ router.delete("/game/:id", (req,res)=> {
 
 router.get("/game/:id/edit", (req,res) => {
     result = sql.query(
-        `select TheView.game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
+        `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
         from TheView 
         left outer join game_genre on TheView.game_id=game_genre.game_id
         left outer join genre on game_genre.genre_id=genre.genre_id

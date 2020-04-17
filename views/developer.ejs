@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+    <div class="container-fluid">
+        <form action="/game" method="POST">
+            <div>
+                <input type="text" name="devname" placeholder="Developer">
+                <button>Submit</button>
+            </div>
+        </form>
+
+        <table style="width:100%">
+            <tr>
+                <th>Developer</th>
+                <th>Year Established</th>
+            </tr>
+        <% for(var i=0; i<devs.length; i++) { %>
+            <tr>
+                <td><a href="/game/<%= devs[i]['dev_id'] %>"><%= devs[i]['dev_name'] %></a></td>
+                <td><%= devs[i]['est'] %></td>
+            </tr>
+        <% } %>
+        </table>
+    </div>
+     
+<%- include("partials/footer") %>

@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+    <div class="container-fluid">
+        <form action="/game" method="POST">
+            <div>
+                <input type="text" name="pubname" placeholder="Publisher">
+                <button>Submit</button>
+            </div>
+        </form>
+
+        <table style="width:100%">
+            <tr>
+                <th>Publisher</th>
+                <th>Year Established</th>
+            </tr>
+        <% for(var i=0; i<pubs.length; i++) { %>
+            <tr>
+                <td><a href="/game/<%= pubs[i]['pub_id'] %>"><%= pubs[i]['pub_name'] %></a></td>
+                <td><%= pubs[i]['est'] %></td>
+            </tr>
+        <% } %>
+        </table>
+    </div>
+     
+<%- include("partials/footer") %>

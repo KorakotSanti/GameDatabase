@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <form action="/game" method="POST">
             <div>
-                <label>Game Name</label>
-                <input type="text" name="gamename" placeholder="game">
+                <input type="text" name="gamename" placeholder="Game">
                 <select name="genre">
                     <option value="all">Genre</option>
                     <% for (var i=0; i<genres.length; i++) { %>
@@ -19,7 +18,6 @@
                 <button>Submit</button>
             </div>
         </form>
-
         <table style="width:100%">
             <tr>
                 <th>Game</th>
