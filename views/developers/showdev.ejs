@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+ <div class="container d-flex justify-content-center">   
+    <div class="col-4">
+       <div class="row">
+          <div><button><a href="/developer/<%= infos['dev_id'] %>/edit">EDIT</a></button></div>
+       </div>
+       <div class="row">
+          <div>
+            <h1><%= infos['devname'] %></h1>
+          </div>
+          <div>
+            <h5><%= infos['est'] %></h5>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col">
+                <ul style="list-style-type: none;">
+                  Games:
+                  <% for (var i=0; i < infos['games'].length; i++) { %>
+                      <li><a href="/game/<%= infos['games'][i]['gameid'] %>"><%= infos['games'][i]["gamename"] %></a></li>
+                  <% } %>
+                </ul>
+          </div>
+       </div>
+    </div>
+ </div>
+
+ <%- include("../partials/footer") %>

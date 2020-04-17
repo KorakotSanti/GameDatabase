@@ -42,7 +42,7 @@ router.get("/game", (req,res) => {
                 game_title=null;
                 genrename = "(SELECT genre_name from genre)";
                 platname = "(SELECT platform_name from platform)";
-                res.render("game", {games:rows,genres:genreList,platforms:platformList})
+                res.render("games/game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
             }
@@ -60,7 +60,7 @@ router.get("/game", (req,res) => {
             if (!err) {
                 genrename = "(SELECT genre_name from genre)";
                 platname = "(SELECT platform_name from platform)";
-                res.render("game", {games:rows,genres:genreList,platforms:platformList})
+                res.render("games/game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
             }
@@ -115,7 +115,7 @@ router.get("/game/:id", (req,res) => {
             gamedata['genres'] = Array.from(genres);
             gamedata['platforms'] = Array.from(plat);
 
-            res.render("showgame", {game:gamedata});
+            res.render("games/showgame", {game:gamedata});
         } else {
             console.log(err);
             res.redirect("/game");
@@ -174,7 +174,7 @@ router.get("/game/:id/edit", (req,res) => {
                 gamedata['platforms'] = ['N/A'];
             }
 
-            res.render("editgames", {game:gamedata});
+            res.render("games/editgames", {game:gamedata});
         } else {
             console.log(err);
             res.redirect("/game");
@@ -184,7 +184,12 @@ router.get("/game/:id/edit", (req,res) => {
 
 router.put("/game/:id", (req,res) => {
     let input = req.body;
-    
+    for (var item in input) {
+        if (input[item] == '' || input[item] == 'N/A'){
+            input[item] = 'NULL';
+        }
+    }
+
     sql.query(`SELECT * FROM developer WHERE dev_name="${input.dev}";`, (err, rows, fields) => {
         if (rows.length==0) {
             sql.query(`INSERT INTO developer (dev_name) VALUES ("${input.dev}");`);
@@ -195,7 +200,7 @@ router.put("/game/:id", (req,res) => {
                 sql.query(`INSERT INTO publisher (pub_name) VALUES ("${input.pub}");`);
                 console.log("adding");
             }
-            sql.query(`UPDATE game SET game_name="${input.gamename}", q_rating=${Number(input.quality)}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), image='${input.image}' WHERE game_id=${req.params.id};`, (err,rows,fields) => {
+            sql.query(`UPDATE game SET game_name="${input.gamename}", q_rating=${input.quality}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), image='${input.image}' WHERE game_id=${req.params.id};`, (err,rows,fields) => {
                 if (!err) {
                     res.redirect(`/game/${req.params.id}`);
                 }

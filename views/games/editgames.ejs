@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 <div class="grid d-flex justify-content-center border-top border-primary">
     <form action="/game/<%= game['gameid'] %>?_method=PUT" method="POST">
        <div class="row">
@@ -51,4 +51,4 @@
        </div>
     </form>
 </div>
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>
