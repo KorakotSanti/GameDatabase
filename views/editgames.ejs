@@ -1,34 +1,54 @@
 <%- include('partials/header') %>
-<div class="container-fluid">
-    <div>
-        Edit <%= game['gamename'] %>
-    </div>
+<div class="grid d-flex justify-content-center border-top border-primary">
     <form action="/game/<%= game['gameid'] %>?_method=PUT" method="POST">
-        <div>
-            <label>Game:</label>
-            <input type="text" name="gamename" value="<%= game['gamename'] %>">
-        </div>
-        <div>
-            <label>Developer</label>
-            <input type="text" name="dev" value="<%= game['Developer'] %>">
-        </div>
-        <div>
-            <label>Publisher</label>
-            <input type="text" name="pub" value="<%= game['Publisher'] %>">
-        </div>
-        <div>
-            <label>Quality Rating</label>
-            <input type="text" name="quality" value="<%= game['Quality'] %>">
-        </div>
-        <div>
-            <label>Maturity Rating</label>
-            <input type="text" name="maturity" value="<%= game['Maturity'] %>">
-        </div>
-        <div>
-            <label>Image URL</label>
-            <input type="text" name="image" value="<%= game['image'] %>">
-        </div>
-        <button>Submit</button>
+       <div class="row">
+         <h3> Edit: <%= game['gamename'] %></h3>
+       </div>
+       <div class="row">
+          <div class="col-5">
+             <div class="row">
+               <label>Game:</label>
+             </div>
+             <div class="row">
+               <label>Developer</label>
+             </div>
+             <div class="row">
+               <label>Publisher</label>
+             </div>
+             <div class="row">
+               <label>Quality Rating</label>
+             </div>
+             <div class="row">
+               <label>Maturity Rating</label>
+             </div>
+             <div class="row">
+               <label>Image URL</label>
+             </div>
+          </div>
+          <div class="col-7">
+             <div class="row">
+               <input type="text" name="gamename" value="<%= game['gamename'] %>">
+             </div>
+             <div class="row">
+               <input type="text" name="dev" value="<%= game['Developer'] %>">
+             </div>
+             <div class="row">
+               <input type="text" name="pub" value="<%= game['Publisher'] %>">
+             </div>
+             <div class="row">
+               <input type="text" name="quality" value="<%= game['Quality'] %>">
+             </div>
+             <div class="row">
+               <input type="text" name="maturity" value="<%= game['Maturity'] %>">
+             </div>
+             <div class="row">
+               <input type="text" name="image" value="<%= game['image'] %>">
+             </div>
+          </div>
+       </div>
+       <div class="row d-flex justify-content-center">
+          <button>Submit</button>
+       </div>
     </form>
 </div>
 <%- include("partials/footer") %>

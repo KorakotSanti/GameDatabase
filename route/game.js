@@ -69,7 +69,7 @@ router.get("/game", (req,res) => {
 });
 
 router.post("/game", (req,res) => {
-    game_title = "'%" + req.body.gamename + "%'";
+    game_title = `"%` + req.body.gamename + `%"`;
     if (req.body.genre == "all") {
         genrename = "(SELECT genre_name from genre)";
     } else {
@@ -185,17 +185,17 @@ router.get("/game/:id/edit", (req,res) => {
 router.put("/game/:id", (req,res) => {
     let input = req.body;
     
-    sql.query(`SELECT * FROM developer WHERE dev_name='${input.dev}'`, (err, rows, fields) => {
+    sql.query(`SELECT * FROM developer WHERE dev_name="${input.dev}";`, (err, rows, fields) => {
         if (rows.length==0) {
-            sql.query(`INSERT INTO developer (dev_name) VALUES ('${input.dev}')`);
+            sql.query(`INSERT INTO developer (dev_name) VALUES ("${input.dev}");`);
         }
 
-        sql.query(`SELECT * FROM publisher WHERE pub_name='${input.pub}'`, (err, rows, fields) => {
+        sql.query(`SELECT * FROM publisher WHERE pub_name="${input.pub}";`, (err, rows, fields) => {
             if (rows.length==0) {
-                sql.query(`INSERT INTO developer (pub_name) VALUES ('${input.pub}')`);
+                sql.query(`INSERT INTO publisher (pub_name) VALUES ("${input.pub}");`);
                 console.log("adding");
             }
-            sql.query(`UPDATE game SET game_name='${input.gamename}', q_rating=${Number(input.quality)}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name='${input.dev}'), pub_id=(SELECT pub_id FROM publisher WHERE pub_name='${input.pub}'), image='${input.image}' WHERE game_id=${req.params.id}`, (err,rows,fields) => {
+            sql.query(`UPDATE game SET game_name="${input.gamename}", q_rating=${Number(input.quality)}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), image='${input.image}' WHERE game_id=${req.params.id};`, (err,rows,fields) => {
                 if (!err) {
                     res.redirect(`/game/${req.params.id}`);
                 }
