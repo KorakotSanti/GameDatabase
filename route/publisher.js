@@ -37,26 +37,53 @@ router.get("/publisher/:id", (req,res) => {
                 FROM game INNER JOIN publisher p on game.pub_id=p.pub_id
                 WHERE p.pub_id = ${req.params.id};`, (err, rows, fields) => {
         if (!err) {
-            let info = {
-                "pubid": rows[0]['pub_id'],
-                "pubname": rows[0]['pub_name'],
-                "est": rows[0]['est']
-            };
-
-            let gameinfo = [];
-
-            for (var i=0; i < rows.length; i++){
-                gameinfo.push({"gameid":rows[i]['game_id'], "gamename":rows[i]['game_name']});
+            if (rows.length > 0) {
+                let info = {
+                    "pubid": rows[0]['pub_id'],
+                    "pubname": rows[0]['pub_name'],
+                    "est": rows[0]['est']
+                };
+    
+                let gameinfo = [];
+    
+                for (var i=0; i < rows.length; i++){
+                    gameinfo.push({"gameid":rows[i]['game_id'], "gamename":rows[i]['game_name']});
+                }
+    
+                info['games'] = gameinfo;
+    
+                res.render("publishers/showpub", {infos:info});
             }
-
-            info['games'] = gameinfo;
-
-            res.render("publishers/showpub", {infos:info});
+            else {
+                res.redirect("/publisher");
+            }
+            
         } else {
             console.log(err);
             res.redirect("/publisher");
         }
     })
+});
+
+router.get("/publisher/:id/edit", (req,res) => {
+    sql.query(`SELECT * FROM publisher WHERE pub_id = ${req.params.id};`, (err, rows, fields) => {
+        if (!err) {
+            let info = rows[0];
+            res.render('publishers/editpub', {info:info});
+        }
+        else {
+            res.redirect(`/publisher/${req.params.id}`);
+        }
+    });
+});
+
+router.put("/publisher/:id", (req,res) => {
+    let input = req.body;
+    if (input.est == '') {
+        input.est = "NULL";
+    }
+    sql.query(`UPDATE publisher SET pub_name="${input.pubname}", year_established="${input.est}" WHERE pub_id=${req.params.id};`);
+    res.redirect(`/publisher/${req.params.id}`);
 });
 
 

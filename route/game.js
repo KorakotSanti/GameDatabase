@@ -30,10 +30,10 @@ router.get("/game", (req,res) => {
 
     if (game_title != null) {
         sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
-                    INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
-                    INNER JOIN genre on gg.genre_id=genre.genre_id
-                    INNER JOIN game_platform as gp on gp.game_id=TheView.game_id
-                    INNER JOIN platform on gp.platform_id=platform.platform_id
+                    LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                    LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
+                    LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                    LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
                     WHERE Game LIKE ${game_title}
                     AND genre_name IN ${genrename}
                     AND platform_name IN ${platname}
@@ -50,12 +50,12 @@ router.get("/game", (req,res) => {
     } else {
         sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer, 'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
                     FROM TheView
-                    INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
-                    INNER JOIN genre on gg.genre_id=genre.genre_id
-                    INNER JOIN game_platform as gp on gp.game_id=TheView.game_id
-                    INNER JOIN platform on gp.platform_id=platform.platform_id
-                    WHERE genre_name IN ${genrename}
-                    AND platform_name IN ${platname}
+                    LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                    LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
+                    LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                    LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
+                    WHERE (genre_name IN ${genrename})
+                    AND (platform_name IN ${platname})
                     ORDER BY Game;`, (err,rows,fields) => {
             if (!err) {
                 genrename = "(SELECT genre_name from genre)";
@@ -94,28 +94,33 @@ router.get("/game/:id", (req,res) => {
         left outer join platform on game_platform.platform_id=platform.platform_id
         where TheView.game_id=${req.params.id};`, (err, rows, fields) => {
         if(!err){
-            let gamedata={
-                "gameid": rows[0]['game_id'],
-                "gamename":rows[0]['Game'], 
-                "Developer":rows[0]['Developer'], 
-                "Publisher":rows[0]['Publisher'], 
-                "Quality": rows[0]['Quality'],
-                "Maturity": rows[0]['Maturity'],
-                "image": rows[0]['image']
+            if (rows.length > 0) {
+                let gamedata={
+                    "gameid": rows[0]['game_id'],
+                    "gamename":rows[0]['Game'], 
+                    "Developer":rows[0]['Developer'], 
+                    "Publisher":rows[0]['Publisher'], 
+                    "Quality": rows[0]['Quality'],
+                    "Maturity": rows[0]['Maturity'],
+                    "image": rows[0]['image']
+                }
+
+                let genres = new Set()
+                let plat = new Set()
+
+                for(var i=0; i < rows.length; i++) {
+                    genres.add(rows[i]['genre_name']);
+                    plat.add(rows[i]['platform_name']);
+                }
+
+                gamedata['genres'] = Array.from(genres);
+                gamedata['platforms'] = Array.from(plat);
+
+                res.render("games/showgame", {game:gamedata});
             }
-
-            let genres = new Set()
-            let plat = new Set()
-
-            for(var i=0; i < rows.length; i++) {
-                genres.add(rows[i]['genre_name']);
-                plat.add(rows[i]['platform_name']);
+            else {
+                res.redirect("/game");
             }
-
-            gamedata['genres'] = Array.from(genres);
-            gamedata['platforms'] = Array.from(plat);
-
-            res.render("games/showgame", {game:gamedata});
         } else {
             console.log(err);
             res.redirect("/game");
