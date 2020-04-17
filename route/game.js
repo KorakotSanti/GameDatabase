@@ -3,6 +3,8 @@ const router = express.Router();
 const sql = require('../db/database.js');
 let game_title = null;
 let genreList, platformList;
+let genrename = "(SELECT genre_name from genre)";
+let platname = "(SELECT platform_name from platform)";
 
 // get list of genres
 sql.query('SELECT genre_name from genre', (err, rows, fields) => {
@@ -27,17 +29,37 @@ sql.query('SELECT platform_name from platform', (err, rows, fields) => {
 router.get("/game", (req,res) => {
 
     if (game_title != null) {
-        sql.query(`SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView WHERE Game LIKE ${game_title};`, (err,rows,fields) => {
+        sql.query(`SELECT DISTINCT(TheView.game_id), Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
+                    INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                    INNER JOIN genre on gg.genre_id=genre.genre_id
+                    INNER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                    INNER JOIN platform on gp.platform_id=platform.platform_id
+                    WHERE Game LIKE ${game_title}
+                    AND genre_name IN ${genrename}
+                    AND platform_name IN ${platname}
+                    ORDER BY Game;`, (err,rows,fields) => {
             if (!err) {
                 game_title=null;
+                genrename = "(SELECT genre_name from genre)";
+                platname = "(SELECT platform_name from platform)";
                 res.render("game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
             }
         });
     } else {
-        sql.query("SELECT game_id, Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView;", (err,rows,fields) => {
+        sql.query(`SELECT DISTINCT(TheView.game_id), Game, Developer, Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
+                    FROM TheView
+                    INNER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                    INNER JOIN genre on gg.genre_id=genre.genre_id
+                    INNER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                    INNER JOIN platform on gp.platform_id=platform.platform_id
+                    WHERE genre_name IN ${genrename}
+                    AND platform_name IN ${platname}
+                    ORDER BY Game;`, (err,rows,fields) => {
             if (!err) {
+                genrename = "(SELECT genre_name from genre)";
+                platname = "(SELECT platform_name from platform)";
                 res.render("game", {games:rows,genres:genreList,platforms:platformList})
             } else {
                 console.log(err);
@@ -48,7 +70,17 @@ router.get("/game", (req,res) => {
 
 router.post("/game", (req,res) => {
     game_title = "'%" + req.body.gamename + "%'";
-    console.log(req.body.genreo);
+    if (req.body.genre == "all") {
+        genrename = "(SELECT genre_name from genre)";
+    } else {
+        genrename = "('"+req.body.genre+"')";
+    }
+
+    if (req.body.platform == "all") {
+        platname = "(SELECT platform_name from platform)";
+    } else {
+        platname = "('"+req.body.platform+"')";
+    }
     res.redirect("/game");
 });
 
