@@ -7,7 +7,7 @@ let genrename = "(SELECT genre_name from genre)";
 let platname = "(SELECT platform_name from platform)";
 
 // get list of genres
-sql.query('SELECT genre_name from genre', (err, rows, fields) => {
+sql.query('SELECT * from genre', (err, rows, fields) => {
     if (!err) {
         genreList=rows;
     }
@@ -17,7 +17,7 @@ sql.query('SELECT genre_name from genre', (err, rows, fields) => {
 });
 
 // get list of platforms
-sql.query('SELECT platform_name from platform', (err, rows, fields) => {
+sql.query('SELECT * from platform', (err, rows, fields) => {
     if (!err) {
         platformList=rows;
     }
@@ -29,15 +29,17 @@ sql.query('SELECT platform_name from platform', (err, rows, fields) => {
 router.get("/game", (req,res) => {
 
     if (game_title != null) {
-        sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
-                    LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
-                    LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
-                    LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
-                    LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
-                    WHERE Game LIKE ${game_title}
-                    AND genre_name IN ${genrename}
-                    AND platform_name IN ${platname}
-                    ORDER BY Game;`, (err,rows,fields) => {
+        let queryState = `SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
+                            LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                            LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
+                            LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                            LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
+                            WHERE Game LIKE ${game_title}
+                            AND genre_name IN ${genrename}
+                            AND platform_name IN ${platname}
+                            ORDER BY Game;`;
+
+        sql.query(queryState, (err,rows,fields) => {
             if (!err) {
                 game_title=null;
                 genrename = "(SELECT genre_name from genre)";
@@ -48,15 +50,17 @@ router.get("/game", (req,res) => {
             }
         });
     } else {
-        sql.query(`SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer, 'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
-                    FROM TheView
-                    LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
-                    LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
-                    LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
-                    LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
-                    WHERE (genre_name IN ${genrename})
-                    AND (platform_name IN ${platname})
-                    ORDER BY Game;`, (err,rows,fields) => {
+        let queryState = `SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer, 'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity
+                            FROM TheView
+                            LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
+                            LEFT OUTER JOIN genre on gg.genre_id=genre.genre_id
+                            LEFT OUTER JOIN game_platform as gp on gp.game_id=TheView.game_id
+                            LEFT OUTER JOIN platform on gp.platform_id=platform.platform_id
+                            WHERE (genre_name IN ${genrename})
+                            AND (platform_name IN ${platname})
+                            ORDER BY Game;`;
+
+        sql.query(queryState, (err,rows,fields) => {
             if (!err) {
                 genrename = "(SELECT genre_name from genre)";
                 platname = "(SELECT platform_name from platform)";
@@ -85,14 +89,15 @@ router.post("/game", (req,res) => {
 });
 
 router.get("/game/:id", (req,res) => {
-    result = sql.query(
-        `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
-        from TheView 
-        left outer join game_genre on TheView.game_id=game_genre.game_id
-        left outer join genre on game_genre.genre_id=genre.genre_id
-        left outer join game_platform on TheView.game_id=game_platform.game_id
-        left outer join platform on game_platform.platform_id=platform.platform_id
-        where TheView.game_id=${req.params.id};`, (err, rows, fields) => {
+    let queryState = `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
+                        from TheView 
+                        left outer join game_genre on TheView.game_id=game_genre.game_id
+                        left outer join genre on game_genre.genre_id=genre.genre_id
+                        left outer join game_platform on TheView.game_id=game_platform.game_id
+                        left outer join platform on game_platform.platform_id=platform.platform_id
+                        where TheView.game_id=${sql.escape(req.params.id)};`
+
+    sql.query(queryState, (err, rows, fields) => {
         if(!err){
             if (rows.length > 0) {
                 let gamedata={
@@ -142,14 +147,15 @@ router.delete("/game/:id", (req,res)=> {
 
 
 router.get("/game/:id/edit", (req,res) => {
-    result = sql.query(
-        `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
-        from TheView 
-        left outer join game_genre on TheView.game_id=game_genre.game_id
-        left outer join genre on game_genre.genre_id=genre.genre_id
-        left outer join game_platform on TheView.game_id=game_platform.game_id
-        left outer join platform on game_platform.platform_id=platform.platform_id
-        where TheView.game_id=${req.params.id};`, (err, rows, fields) => {
+    let queryState = `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
+                        from TheView 
+                        left outer join game_genre on TheView.game_id=game_genre.game_id
+                        left outer join genre on game_genre.genre_id=genre.genre_id
+                        left outer join game_platform on TheView.game_id=game_platform.game_id
+                        left outer join platform on game_platform.platform_id=platform.platform_id
+                        where TheView.game_id=${sql.escape(req.params.id)};`
+
+    result = sql.query(queryState, (err, rows, fields) => {
         if(!err){
             let gamedata={
                 "gameid": rows[0]['game_id'],
@@ -195,17 +201,25 @@ router.put("/game/:id", (req,res) => {
         }
     }
 
-    sql.query(`SELECT * FROM developer WHERE dev_name="${input.dev}";`, (err, rows, fields) => {
+    let queryState = '';
+
+    sql.query(`SELECT * FROM developer WHERE dev_name = ?;`, [input.dev], (err, rows, fields) => {
         if (rows.length==0) {
-            sql.query(`INSERT INTO developer (dev_name) VALUES ("${input.dev}");`);
+            queryState = queryState + `INSERT INTO developer (dev_name) VALUES ("${input.dev}");`;
         }
 
-        sql.query(`SELECT * FROM publisher WHERE pub_name="${input.pub}";`, (err, rows, fields) => {
+        sql.query(`SELECT * FROM publisher WHERE pub_name= ?;`, [input.pub], (err, rows, fields) => {
             if (rows.length==0) {
-                sql.query(`INSERT INTO publisher (pub_name) VALUES ("${input.pub}");`);
-                console.log("adding");
+                queryState = queryState + `INSERT INTO publisher (pub_name) VALUES ("${input.pub}");`;
             }
-            sql.query(`UPDATE game SET game_name="${input.gamename}", q_rating=${input.quality}, m_rating='${input.maturity}', dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), image='${input.image}' WHERE game_id=${req.params.id};`, (err,rows,fields) => {
+            queryState = queryState + `UPDATE game SET game_name="${input.gamename}", 
+                                        q_rating=${input.quality}, m_rating='${input.maturity}', 
+                                        dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), 
+                                        pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), 
+                                        image='${input.image}' 
+                                        WHERE game_id=${req.params.id};`;
+
+            sql.query(queryState, (err,rows,fields) => {
                 if (!err) {
                     res.redirect(`/game/${req.params.id}`);
                 }
@@ -219,7 +233,74 @@ router.put("/game/:id", (req,res) => {
 });
 
 router.get("/addgame", (req,res) => {
-    res.render("games/addgame",{genres:genreList, platforms:platformList});
+    res.render("games/addgame", {genres:genreList, platforms:platformList});
+});
+
+router.post("/addgame", (req,res) => {
+    let input = req.body;
+    if (input.maturity == 'N/A'){
+        input.maturity = 'NULL';
+    }
+    else {
+        input.maturity = `"${input.maturity}"`;
+    }
+
+    let insert = '';
+
+    sql.query("SELECT * FROM developer WHERE dev_name = ?", [input.devname], (err, devrows, fields) => {
+        if (devrows.length == 0) {
+            insert = insert + `INSERT INTO developer (dev_name) VALUES ("${input.devname}");`;
+        }
+
+        sql.query("SELECT * FROM publisher WHERE pub_name = ?", [input.pubname], (err, pubrows, fields) => {
+            if (pubrows.length == 0) {
+                insert = insert + `INSERT INTO publisher (pub_name) VALUES ("${input.pubname}");`;
+            }
+
+            insert = insert + `INSERT INTO game (game_name, q_rating, m_rating, dev_id, pub_id)
+                                VALUES ("${input.gamename}", ${Number(input.quality)}, ${input.maturity}, 
+                                        (SELECT dev_id FROM developer WHERE dev_name = "${input.devname}"),
+                                        (SELECT pub_id FROM publisher WHERE pub_name = "${input.pubname}"));`
+            
+            let insertgenres = `INSERT INTO game_genre
+                                VALUES`;
+            if (Array.isArray(input.genres) == true){
+                for (var i = 0; i < input.genres.length; i++){
+                    insertgenres = insertgenres + `((SELECT game_id FROM game WHERE game_name="${input.gamename}"), ${input.genres[i]}),`
+                }
+                insertgenres = insertgenres.replace(/.$/,";");
+            }
+            else {
+                insertgenres = insertgenres + `((SELECT game_id FROM game WHERE game_name="${input.gamename}"), ${input.genres});`
+            }
+
+            insert = insert + insertgenres;
+
+            let insertplat = `INSERT INTO game_platform (game_id, platform_id)
+                                VALUES`;
+            if (Array.isArray(input.platform) == true) {
+                for (var i = 0; i < input.platform.length; i++) {
+                    insertplat = insertplat + `((SELECT game_id FROM game WHERE game_name="${input.gamename}"), ${input.platform[i]}),`;
+                }
+                insertplat = insertplat.replace(/.$/, ";");
+            }
+            else {
+                insertplat = insertplat + `((SELECT game_id FROM game WHERE game_name="${input.gamename}"), ${input.platform});`;
+            }
+            insert = insert + insertplat;
+
+            sql.query(insert, (err, rows, fields) => {
+                if (!err) {
+                    res.redirect("/game");
+                }
+                else {
+                    console.log(err);
+                    res.redirect("/game");
+                }
+            });
+            
+        });
+    });
 })
 
 module.exports = router;
