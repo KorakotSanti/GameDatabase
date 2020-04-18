@@ -216,9 +216,10 @@ router.put("/game/:id", (req,res) => {
             });
         });
     });
-    
-    
 });
 
+router.get("/addgame", (req,res) => {
+    res.render("games/addgame",{genres:genreList, platforms:platformList});
+})
 
 module.exports = router;
