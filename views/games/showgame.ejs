@@ -1,68 +1,73 @@
 <%- include('../partials/header') %>
  <div class="container d-flex justify-content-center">   
-    <div class="col-4">
-       <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col-2">
           <div><button><a href="/game/<%= game['gameid'] %>/edit">EDIT</a></button></div>
           <form action="/game/<%= game['gameid'] %>?_method=DELETE" method="POST">
              <button>Delete</button>
           </form>
        </div>
-       <div class="row">
+       <div class="col-10">
           <h1><%= game['gamename'] %></h1>
-       </div>
-       <div class="row">
-             <h2>Developer:</h2>
-             <h3> <%= game['Developer'] %></h3>
-       </div>
-       <div class="row">
-             <h2>Publisher:</h2>
-             <h3> <%= game['Publisher'] %></h3>
-       </div>
-       <div class="row">
-             <h2>Maturity:<h2>
-             <% if (game['Maturity'] == 'E'){%>
-                <h3> Everyone </h3>
-             <% } %>
-             <% if (game['Maturity'] == 'T'){%>
-                <h3> Teen </h3>
-             <% } %>      
-             <% if (game['Maturity'] == 'M'){%>
-                <h3> Mature </h3>
-             <% } %>
-             <% if (game['Maturity'] == 'N/A'){%>
-                <h3> Not Applicable </h3>
-             <% } %>
-       </div>
-       <div class="row">
-             <h2>Quality:</h2>
-             <h3><%= game['Quality'] %></h3>
-       </div>
-       <div class="row">
-          <div class="col">
-             <ul style="list-style-type: none;">
-                   Platforms:
-                   <% for (var i=0; i < game['platforms'].length; i++) { %>
-                      <li><%= game['platforms'][i] %></li>
-                   <% } %>
-                </ul>
+       </div> 
+    <div class="row">
+       <div class="col-7">
+          <div class="row">
+             <div>
+                <img id="GAMEPIC"src=<%= game['image'] %>>
+             </div>
           </div>
-          <div class="col">
+       </div>
+       <div class="col-5">
+          <div class="row">
+                <h2>Developer:</h2>
+                <h3> <%= game['Developer'] %></h3>
+          </div>
+          <div class="row">
+                <h2>Publisher:</h2>
+                <h3> <%= game['Publisher'] %></h3>
+          </div>
+          <div class="row">
+                <h2>Maturity:<h2>
+                <% if (game['Maturity'] == 'E'){%>
+                   <h3> Everyone </h3>
+                <% } %>
+                <% if (game['Maturity'] == 'T'){%>
+                   <h3> Teen </h3>
+                <% } %>      
+                <% if (game['Maturity'] == 'M'){%>
+                   <h3> Mature </h3>
+                <% } %>
+                <% if (game['Maturity'] == 'N/A'){%>
+                   <h3> Not Applicable </h3>
+                <% } %>
+          </div>
+          <div class="row">
+                <h2>Quality:</h2>
+                <h3><%= game['Quality'] %></h3>
+          </div>
+          <div class="row">
+             <div class="col-4">
                 <ul style="list-style-type: none;">
-                  Genres:
-                  <% for (var i=0; i < game['genres'].length; i++) { %>
-                      <li><%= game['genres'][i] %></li>
-                  <% } %>
-                </ul>
+                      Platforms:
+                      <% for (var i=0; i < game['platforms'].length; i++) { %>
+                         <li><%= game['platforms'][i] %></li>
+                      <% } %>
+                   </ul>
+             </div>
+             <div class="col-8">
+                   <ul style="list-style-type: none;">
+                     Genres:
+                     <% for (var i=0; i < game['genres'].length; i++) { %>
+                         <li><%= game['genres'][i] %></li>
+                     <% } %>
+                   </ul>
+             </div>
           </div>
        </div>
     </div>
-    <div class="col-8">
-       <div class="row">
-          <div>
-             <img id="GAMEPIC"src=<%= game['image'] %>>
-          </div>
-       </div>
-    </div>
+ 
  </div>
 
  <%- include("../partials/footer") %>
