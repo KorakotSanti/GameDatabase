@@ -13,7 +13,7 @@
                 <th>Year Established</th>
             </tr>
         <% for(var i=0; i<pubs.length; i++) { %>
-            <tr>
+            <tr class="table_work">
                 <td><a href="/publisher/<%= pubs[i]['pub_id'] %>"><%= pubs[i]['pub_name'] %></a></td>
                 <td><%= pubs[i]['est'] %></td>
             </tr>

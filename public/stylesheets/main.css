@@ -8,3 +8,8 @@ body {
     max-width: 350px;
     max-height: 350px;
 }
+
+tr.table_work {
+  border-style: solid;
+  border-width: 1px;
+}

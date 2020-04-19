@@ -16,8 +16,13 @@
           <div class="col">
                 <ul style="list-style-type: none;">
                   Games:
-                  <% for (var i=0; i < infos['games'].length; i++) { %>
-                      <li><a href="/game/<%= infos['games'][i]['gameid'] %>"><%= infos['games'][i]["gamename"] %></a></li>
+                  <% if (infos['games'].length == 0){ %>
+                     <li>No Games Available</li>
+                  <% } %>
+                  <% if (infos['games'].length > 0) { %>
+                     <% for (var i=0; i < infos['games'].length; i++) { %>
+                        <li><a href="/game/<%= infos['games'][i]['gameid'] %>"><%= infos['games'][i]["gamename"] %></a></li>
+                     <% } %>
                   <% } %>
                 </ul>
           </div>

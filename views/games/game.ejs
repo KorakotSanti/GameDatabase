@@ -27,7 +27,7 @@
                 <th>Publisher</th>
             </tr>
         <% for(var i=0; i<games.length; i++) { %>
-            <tr>
+            <tr class="table_work">
                 <td><a href="/game/<%= games[i]['game_id'] %>"><%= games[i]['Game'] %></a></td>
                 <td><%= games[i]['Quality'] %></td>
                 <td><%= games[i]['Maturity'] %></td>
