@@ -26,16 +26,23 @@
                 <th>Developer</th>
                 <th>Publisher</th>
             </tr>
-        <% for(var i=0; i<games.length; i++) { %>
-            <tr class="table_work">
-                <td><a href="/game/<%= games[i]['game_id'] %>"><%= games[i]['Game'] %></a></td>
-                <td><%= games[i]['Quality'] %></td>
-                <td><%= games[i]['Maturity'] %></td>
-                <td><%= games[i]['Developer'] %></td>
-                <td><%= games[i]['Publisher'] %></td>
-            </tr>
+        <% if (games.length > 0) { %>
+            <% for(var i=0; i<games.length; i++) { %>
+                <tr class="table_work">
+                    <td><a href="/game/<%= games[i]['game_id'] %>"><%= games[i]['Game'] %></a></td>
+                    <td><%= games[i]['Quality'] %></td>
+                    <td><%= games[i]['Maturity'] %></td>
+                    <td><%= games[i]['Developer'] %></td>
+                    <td><%= games[i]['Publisher'] %></td>
+                </tr>
+            <% } %>
         <% } %>
         </table>
+        <% if (games.length == 0) { %>
+            <div>
+                <h1 style="text-align: center;">NO GAME FOUND</h1>
+            </div>
+        <% } %>
     </div>
      
 <%- include("../partials/footer") %>

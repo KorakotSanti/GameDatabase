@@ -12,13 +12,20 @@
                 <th>Developer</th>
                 <th>Year Established</th>
             </tr>
-        <% for(var i=0; i<devs.length; i++) { %>
-            <tr class="table_work">
-                <td><a href="/developer/<%= devs[i]['dev_id'] %>"><%= devs[i]['dev_name'] %></a></td>
-                <td><%= devs[i]['est'] %></td>
-            </tr>
+        <% if (devs.length > 0) { %>
+            <% for(var i=0; i<devs.length; i++) { %>
+                <tr class="table_work">
+                    <td><a href="/developer/<%= devs[i]['dev_id'] %>"><%= devs[i]['dev_name'] %></a></td>
+                    <td><%= devs[i]['est'] %></td>
+                </tr>
+            <% } %>
         <% } %>
         </table>
+        <% if (devs.length == 0) { %>
+            <div>
+                <h1>NO DEVELOPER FOUND</h1>
+            </div>
+        <% } %>
     </div>
      
 <%- include("../partials/footer") %>
