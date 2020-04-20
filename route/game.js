@@ -196,27 +196,37 @@ router.get("/game/:id/edit", (req,res) => {
 router.put("/game/:id", (req,res) => {
     let input = req.body;
     for (var item in input) {
-        if (input[item] == '' || input[item] == 'N/A'){
+        if (item=='quality'){
+            if (input[item] == '' || input[item] == 'N/A'){
+                input[item] = 'NULL';
+            } else {
+                input[item] = Number(input[item]);
+            }
+        }
+        else if (input[item] == '' || input[item] == 'N/A'){
             input[item] = 'NULL';
+        }
+        else {
+            input[item] = `"${input[item]}"`;
         }
     }
 
     let queryState = '';
 
-    sql.query(`SELECT * FROM developer WHERE dev_name = ?;`, [input.dev], (err, rows, fields) => {
+    sql.query(`SELECT * FROM developer WHERE dev_name = ${input.dev};`, (err, rows, fields) => {
         if (rows.length==0) {
-            queryState = queryState + `INSERT INTO developer (dev_name) VALUES ("${input.dev}");`;
+            queryState = queryState + `INSERT INTO developer (dev_name) VALUES (${input.dev});`;
         }
 
-        sql.query(`SELECT * FROM publisher WHERE pub_name= ?;`, [input.pub], (err, rows, fields) => {
+        sql.query(`SELECT * FROM publisher WHERE pub_name= ${input.pub};`, (err, rows, fields) => {
             if (rows.length==0) {
-                queryState = queryState + `INSERT INTO publisher (pub_name) VALUES ("${input.pub}");`;
+                queryState = queryState + `INSERT INTO publisher (pub_name) VALUES (${input.pub});`;
             }
-            queryState = queryState + `UPDATE game SET game_name="${input.gamename}", 
-                                        q_rating=${input.quality}, m_rating='${input.maturity}', 
-                                        dev_id=(SELECT dev_id FROM developer WHERE dev_name="${input.dev}"), 
-                                        pub_id=(SELECT pub_id FROM publisher WHERE pub_name="${input.pub}"), 
-                                        image='${input.image}' 
+            queryState = queryState + `UPDATE game SET game_name=${input.gamename}, 
+                                        q_rating=${input.quality}, m_rating=${input.maturity}, 
+                                        dev_id=(SELECT dev_id FROM developer WHERE dev_name=${input.dev}), 
+                                        pub_id=(SELECT pub_id FROM publisher WHERE pub_name=${input.pub}), 
+                                        image=${input.image} 
                                         WHERE game_id=${req.params.id};`;
 
             sql.query(queryState, (err,rows,fields) => {
