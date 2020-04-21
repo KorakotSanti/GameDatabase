@@ -18,11 +18,13 @@
        </div>
        <div class="form-group">
         <label>Quality Rating</label>
-        <input type="text" name="quality" class="form-control" value="<%= game['Quality'] %>">
+        <input type="text" aria-describedby="QRHELP" name="quality" class="form-control" value="<%= game['Quality'] %>">
+        <small id="QRHELP" class="form-text text-muted">Scale of 0 - 10</small>
        </div>
        <div class="form-group">
         <label>Maturity Rating</label>
-        <input type="text" name="maturity" class="form-control" value="<%= game['Maturity'] %>">
+        <input type="text" aria-describedby="MRHELP" name="maturity" class="form-control" value="<%= game['Maturity'] %>">
+        <small id="MRHELP" class="form-text text-muted">Leave blank or fill with T, M, E, or N/A</small>
        </div>
        <div class="form-group">
         <label>Image URL</label>

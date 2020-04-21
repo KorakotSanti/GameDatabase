@@ -135,15 +135,14 @@ router.get("/game/:id", (req,res) => {
 
 router.delete("/game/:id", (req,res)=> {
     let id = req.params.id;
-    // sql.query(`DELETE FROM game WHERE game_id=${id}`, (err, rows, fields) => {
-    //     if (!err) {
-    //         res.redirect("/game");
-    //     } else {
-    //         console.log(err);
-    //         res.redirect("/game");
-    //     }
-    // });
-    console.log("beepboop delete");
+    sql.query(`DELETE FROM game WHERE game_id=${id}`, (err, rows, fields) => {
+        if (!err) {
+            res.redirect("/game");
+        } else {
+            console.log(err);
+            res.redirect("/game");
+        }
+    });
 });
 
 
