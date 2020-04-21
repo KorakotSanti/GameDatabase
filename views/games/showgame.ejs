@@ -12,14 +12,28 @@
           <h1><%= game['gamename'] %></h1>
        </div> 
     <div class="row">
-       <div class="col-6">
+       <div class="col-7">
           <div class="row">
              <div>
                 <img id="GAMEPIC" src=<%= game['image'] %>>
              </div>
           </div>
+          <div class="row">
+             <% if (game['Maturity'] == 'E'){%>
+                <img id="ICON" src="https://pbs.twimg.com/media/C3CaVvEVEAE4MTe.png">
+             <% } %>
+             <% if (game['Maturity'] == 'T'){%>
+                <img id="ICON" src="http://www.dadislearning.com/wp-content/uploads/2013/09/t-for-teen.png">
+             <% } %>      
+             <% if (game['Maturity'] == 'M'){%>
+                <img id="ICON" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ESRB_2013_Mature.svg/443px-ESRB_2013_Mature.svg.png">
+             <% } %>
+             <% if (game['Maturity'] == 'N/A'){%>
+                <img id="ICON" src="https://www.tidewatergames.com/image/catalog/ratings/nr-rating.png">
+             <% } %>
+         </div> 
        </div>
-       <div class="col-6">
+       <div class="col-5">
           <div class="row">
                 <h2>Developer:</h2>
                 <h2> <%= game['Developer'] %></h2>
@@ -29,26 +43,11 @@
                 <h2> <%= game['Publisher'] %></h3>
           </div>
           <div class="row">
-                <h2>Maturity:<h2>
-                <% if (game['Maturity'] == 'E'){%>
-                   <h3> Everyone </h3>
-                <% } %>
-                <% if (game['Maturity'] == 'T'){%>
-                   <h3> Teen </h3>
-                <% } %>      
-                <% if (game['Maturity'] == 'M'){%>
-                   <h3> Mature </h3>
-                <% } %>
-                <% if (game['Maturity'] == 'N/A'){%>
-                   <h3> Not Applicable </h3>
-                <% } %>
-          </div>
-          <div class="row">
                 <h2>Quality:</h2>
                 <h3><%= game['Quality'] %></h3>
           </div>
           <div class="row">
-             <div class="col-6">
+             <div class="col-7">
                 <ul style="list-group">
                       Platforms:
                       <% for (var i=0; i < game['platforms'].length; i++) { %>
@@ -56,7 +55,7 @@
                       <% } %>
                    </ul>
              </div>
-             <div class="col-6">
+             <div class="col-5">
                    <ul class="list-group">
                      Genres:
                      <% for (var i=0; i < game['genres'].length; i++) { %>
