@@ -1,29 +1,20 @@
 <%- include('../partials/header') %>
 <div class="grid d-flex justify-content-center border-top border-primary">
-    <form action="/developer/<%= info['dev_id'] %>?_method=PUT" method="POST">
-       <div class="row">
-         <h3> Edit: <%= info['dev_name'] %></h3>
+    <form action="/developer/<%= info['dev_id'] %>?_method=PUT" method="POST" class="form-css">
+       <div class="form-group">
+        <h3>Edit: <%= info['dev_name'] %></h3>
        </div>
-       <div class="row">
-          <div class="col-5">
-             <div class="row">
-               <label>Developer:</label>
-             </div>
-             <div class="row">
-               <label>Year Established</label>
-             </div>
-          </div>
-          <div class="col-7">
-             <div class="row">
-               <input type="text" name="devname" required value="<%= info['dev_name'] %>" required>
-             </div>
-             <div class="row">
-               <input type="text" name="est" pattern="\d.{0,4}" title="0 or 4 digit" value=<%= info['year_established'] %>>
-             </div>
-          </div>
+       <div class="form-group">
+        <label>Developer:</label>
+        <input type="text" name="devname" class="form-control" required value="<%= info['dev_name'] %>" required>
+       </div>
+       <div class="form-group">
+        <label>Year Established</label>
+        <input type="text" aria-describedby="yr" name="est" class="form-control" pattern="\d.{0,4}" title="0 or 4 digit" value=<%= info['est'] %>>
+        <small id="yr" class="form-text text-muted">Leave Blank or Enter 4 digit number</small>
        </div>
        <div class="row d-flex justify-content-center">
-          <button>Submit</button>
+          <button class="btn btn-success">Submit</button>
        </div>
     </form>
 </div>

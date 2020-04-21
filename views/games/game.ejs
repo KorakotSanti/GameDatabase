@@ -2,20 +2,20 @@
     <div class="container-fluid">
         <form action="/game" method="POST">
             <div>
-                <input type="text" name="gamename" placeholder="Game">
-                <select name="genre">
-                    <option value="all">Genre</option>
+                <input type="text" name="gamename" placeholder="Game" class="form-control input-css">
+                <select class="selectpicker" class="form-control" required data-live-search="true" name="genre" >
+                    <option value="all" selected>Genre</option>
                     <% for (var i=0; i<genres.length; i++) { %>
                         <option value="<%= genres[i]['genre_name'] %>"><%= genres[i]['genre_name'] %></option>
                     <% } %>
                 </select>
-                <select name="platform">
-                    <option value="all">Platform</option>
+                <select class="selectpicker" class="form-control" required data-live-search="true" name="platform">
+                    <option value="all" selected>Platform</option>
                     <% for (var i=0; i<platforms.length; i++) { %>
-                        <option value="<%= platforms[i]['platform_name'] %>"><%= platforms[i]['platform_name'] %></option>
+                       <option value="<%= platforms[i]['platform_name'] %>"><%= platforms[i]['platform_name'] %></option>
                     <% } %>
-                </select>
-                <button>Submit</button>
+                 </select>
+                <button class="btn btn-primary">Submit</button>
             </div>
         </form>
         <table style="width:100%">
