@@ -1,73 +1,52 @@
-
 <%- include('../partials/header') %>
 <div class="grid d-flex justify-content-center border-top border-primary">
-    <form action="/addgame" method="POST">
-       <div class="row">
+    <form action="/addgame" method="POST" class="form-css">
+       <div class="form-group">
          <h3> ADD GAME</h3>
        </div>
-       <div class="row">
-          <div class="col-5">
-             <div class="row">
-               <label>Game Name:</label>
-             </div>
-             <div class="row">
-               <label>Developer:</label>
-             </div>
-             <div class="row">
-                <label>Publisher:</label>
-             </div>
-             <div class="row">
-                <label>Maturity Rating:</label>
-             </div>
-             <div class="row">
-                <label>Genres:</label>
-             </div>
-             <div class="row">
-                <label>Platforms:</label>
-             </div>
-             <div class="row">
-               <label>Quality Rating (0-10):</label>
-             </div>
-          </div>
-          <div class="col-7">
-            <div class="row">
-                <input type="text" name="gamename" placeholder="Game" required>
-            </div>
-            <div class="row">
-                <input type="text" name="devname" placeholder="Dev" required>
-            </div>
-            <div class="row">
-                <input type="text" name="pubname" placeholder="Pub" required>
-            </div>
-            <div class="row">
-                <select class="selectpicker" required data-live-search="true" name="maturity" >
-                    <option value="N/A" selected>N/A</option>
-                    <option value='E'>Everyone</option>
-                    <option value='T'>Teens</option>
-                    <option value='M'>Mature</option>
-                </select>
-             </div>
-            <div class="row">
-                <select class="selectpicker" required multiple data-live-search="true" name="genres" >
-                    <% for (var i=0; i<genres.length; i++) { %>
-                        <option value="<%= genres[i]['genre_id'] %>"><%= genres[i]['genre_name'] %></option>
-                    <% } %>
-                </select>
-            </div>
-            <div class="row">
-               <select class="selectpicker" required multiple data-live-search="true" name="platform">
-                  <% for (var i=0; i<platforms.length; i++) { %>
-                     <option value="<%= platforms[i]['platform_id'] %>"><%= platforms[i]['platform_name'] %></option>
-                  <% } %>
-               </select>
-            </div>
-            <div class="row">
-               <input type="range" name="quality" min="0" max="10" step="0.1" value="0">
-            </div>
-          </div>
+       <div class="form-group">
+         <label for="gn">Game Name</label>
+         <input type="text" name="gamename" id="gn" class="form-control" placeholder="Game" required>
+       </div>
+       <div class="form-group">
+         <label for="devv">Developer:</label>
+         <input type="text" name="devname" id="devv" class="form-control" placeholder="Dev" required>
+       </div>
+       <div class="form-group">
+         <label for="pubb">Publisher</label>
+         <input type="text" name="pubname" id="pubb" class="form-control" placeholder="Pub" required>
+       </div>
+       <div class="form-group">
+         <label for="MR">Maturity Rating</label>
+         <select class="selectpicker" id="MR" class="form-control" required data-live-search="true" name="maturity" >
+            <option value="N/A" selected>N/A</option>
+            <option value='E'>Everyone</option>
+            <option value='T'>Teens</option>
+            <option value='M'>Mature</option>
+        </select>
+       </div>
+       <div class="form-group">
+         <label for="Ger">Genres</label>
+         <select class="selectpicker" id="Ger" class="form-control" required multiple data-live-search="true" name="genres" >
+            <% for (var i=0; i<genres.length; i++) { %>
+                <option value="<%= genres[i]['genre_id'] %>"><%= genres[i]['genre_name'] %></option>
+            <% } %>
+        </select>
+       </div>
+       <div class="form-group">
+         <label for="PF">Platforms</label>
+         <select class="selectpicker" id="PF" class="form-control" required multiple data-live-search="true" name="platform">
+            <% for (var i=0; i<platforms.length; i++) { %>
+               <option value="<%= platforms[i]['platform_id'] %>"><%= platforms[i]['platform_name'] %></option>
+            <% } %>
+         </select>
+       </div>
+       <div class="form-group">
+         <label for="QR">Quality Rating (0-10)</label>
+         <input type="range" id="QR" class="form-control" name="quality" min="0" max="10" step="0.1" value="0" style="border-style:solid; border-width:1px;">
        </div>
        <div class="row d-flex justify-content-center">
-          <button>Submit</button>
+          <button class="btn btn-success">Submit</button>
        </div>
     </form>
 </div>

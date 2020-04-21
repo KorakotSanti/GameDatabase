@@ -7,9 +7,24 @@ body {
     width: auto;
     max-width: 350px;
     max-height: 350px;
+    padding-top: 20px;
 }
 
 tr.table_work {
   border-style: solid;
   border-width: 1px;
+}
+
+a.noHover {
+  padding-bottom: 10px;
+  box-shadow: none;
+}
+
+form.form-css {
+  background-color: rgb(3, 4, 87);
+  border-style: double;
+  border-width: 1px;
+  padding: 50px;
+  width: 600px;
+  color: white;
 }

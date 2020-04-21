@@ -3,23 +3,23 @@
     <div class="col">
       <div class="row">
         <div class="col-2">
-          <div><button><a href="/game/<%= game['gameid'] %>/edit">EDIT</a></button></div>
+          <div><button class="btn btn-primary"><a href="/game/<%= game['gameid'] %>/edit" class="text-light">EDIT</a></button></div>
           <form action="/game/<%= game['gameid'] %>?_method=DELETE" method="POST">
-             <button>Delete</button>
+             <button class="btn btn-danger">Delete</button>
           </form>
        </div>
        <div class="col-10">
           <h1><%= game['gamename'] %></h1>
        </div> 
     <div class="row">
-       <div class="col-7">
+       <div class="col-6">
           <div class="row">
              <div>
                 <img id="GAMEPIC" src=<%= game['image'] %>>
              </div>
           </div>
        </div>
-       <div class="col-5">
+       <div class="col-6">
           <div class="row">
                 <h2>Developer:</h2>
                 <h2> <%= game['Developer'] %></h2>
@@ -48,19 +48,19 @@
                 <h3><%= game['Quality'] %></h3>
           </div>
           <div class="row">
-             <div class="col-4">
-                <ul style="list-style-type: none;">
+             <div class="col-6">
+                <ul style="list-group">
                       Platforms:
                       <% for (var i=0; i < game['platforms'].length; i++) { %>
-                         <li><%= game['platforms'][i] %></li>
+                         <li class="list-group-item"><%= game['platforms'][i] %></li>
                       <% } %>
                    </ul>
              </div>
-             <div class="col-8">
-                   <ul style="list-style-type: none;">
+             <div class="col-6">
+                   <ul class="list-group">
                      Genres:
                      <% for (var i=0; i < game['genres'].length; i++) { %>
-                         <li><%= game['genres'][i] %></li>
+                         <li class="list-group-item"><%= game['genres'][i] %></li>
                      <% } %>
                    </ul>
              </div>
