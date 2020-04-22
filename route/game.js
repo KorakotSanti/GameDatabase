@@ -26,8 +26,10 @@ sql.query('SELECT * from platform', (err, rows, fields) => {
     }
 });
 
+// get a whole list of all games with game name, developer info, publisher info, quality rating, and maturity rating
 router.get("/game", (req,res) => {
 
+    // check if user enter a game name
     if (game_title != null) {
         let queryState = `SELECT DISTINCT(TheView.game_id), Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher, 'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity FROM TheView 
                             LEFT OUTER JOIN game_genre as gg on gg.game_id=TheView.game_id
@@ -41,6 +43,7 @@ router.get("/game", (req,res) => {
 
         sql.query(queryState, (err,rows,fields) => {
             if (!err) {
+                // return all the information back to default
                 game_title=null;
                 genrename = "(SELECT genre_name from genre)";
                 platname = "(SELECT platform_name from platform)";
@@ -72,6 +75,7 @@ router.get("/game", (req,res) => {
     }
 });
 
+// this is when user submit the form, will get the genre, platform, or/and game name user wants to search for
 router.post("/game", (req,res) => {
     game_title = `"%` + req.body.gamename + `%"`;
     if (req.body.genre == "all") {
@@ -88,6 +92,7 @@ router.post("/game", (req,res) => {
     res.redirect("/game");
 });
 
+// this get the individual game information with iamge
 router.get("/game/:id", (req,res) => {
     let queryState = `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
                         from TheView 
@@ -133,6 +138,7 @@ router.get("/game/:id", (req,res) => {
     });
 });
 
+// delete operation when user clicks the delete button to delete the game
 router.delete("/game/:id", (req,res)=> {
     let id = req.params.id;
     sql.query(`DELETE FROM game WHERE game_id=${id}`, (err, rows, fields) => {
@@ -146,6 +152,7 @@ router.delete("/game/:id", (req,res)=> {
 });
 
 
+// get the game edits page where you can change game name, developer, publisher, ratings, or image using form
 router.get("/game/:id/edit", (req,res) => {
     let queryState = `select TheView.game_id, Game, ifnull(Developer,'N/A') as Developer, ifnull(Publisher,'N/A') as Publisher, ifnull(Quality,'N/A') as Quality, ifnull(Maturity, 'N/A') as Maturity, genre_name, platform_name, ifnull(image, 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-stock-vector-no-image-available-icon-flat-vector.jpg?ver=6') as image 
                         from TheView 
@@ -193,8 +200,10 @@ router.get("/game/:id/edit", (req,res) => {
     });
 });
 
+// this is when user submit the edit forms
 router.put("/game/:id", (req,res) => {
     let input = req.body;
+    // This checks for input first if it is left blank or not
     for (var item in input) {
         if (item=='quality'){
             if (input[item] == '' || input[item] == 'N/A'){
@@ -213,15 +222,18 @@ router.put("/game/:id", (req,res) => {
 
     let queryState = '';
 
+    // first search if developer exists in db or not if not add a insert query to the query State
     sql.query(`SELECT * FROM developer WHERE dev_name = ${input.dev};`, (err, rows, fields) => {
         if (rows.length==0) {
             queryState = queryState + `INSERT INTO developer (dev_name) VALUES (${input.dev});`;
         }
 
+        // then check if publisher exists if not add insert query
         sql.query(`SELECT * FROM publisher WHERE pub_name= ${input.pub};`, (err, rows, fields) => {
             if (rows.length==0) {
                 queryState = queryState + `INSERT INTO publisher (pub_name) VALUES (${input.pub});`;
             }
+            // now add the update query at the end
             queryState = queryState + `UPDATE game SET game_name=${input.gamename}, 
                                         q_rating=${input.quality}, m_rating=${input.maturity}, 
                                         dev_id=(SELECT dev_id FROM developer WHERE dev_name=${input.dev}), 
@@ -229,6 +241,7 @@ router.put("/game/:id", (req,res) => {
                                         image=${input.image} 
                                         WHERE game_id=${req.params.id};`;
 
+            // this will process between 1-3 queries
             sql.query(queryState, (err,rows,fields) => {
                 if (!err) {
                     res.redirect(`/game/${req.params.id}`);
@@ -242,10 +255,12 @@ router.put("/game/:id", (req,res) => {
     });
 });
 
+// this shows the add games page with the form to add a game
 router.get("/addgame", (req,res) => {
     res.render("games/addgame", {genres:genreList, platforms:platformList});
 });
 
+// this is when addgame form is submited
 router.post("/addgame", (req,res) => {
     let input = req.body;
     if (input.maturity == 'N/A'){
@@ -257,6 +272,7 @@ router.post("/addgame", (req,res) => {
 
     let insert = '';
 
+    // check for developer or publisher to make sure that we do not add duplicates
     sql.query("SELECT * FROM developer WHERE dev_name = ?", [input.devname], (err, devrows, fields) => {
         if (devrows.length == 0) {
             insert = insert + `INSERT INTO developer (dev_name) VALUES ("${input.devname}");`;
@@ -274,6 +290,7 @@ router.post("/addgame", (req,res) => {
             
             let insertgenres = `INSERT INTO game_genre
                                 VALUES`;
+            // check for multiple genres or not
             if (Array.isArray(input.genres) == true){
                 for (var i = 0; i < input.genres.length; i++){
                     insertgenres = insertgenres + `((SELECT game_id FROM game WHERE game_name="${input.gamename}"), ${input.genres[i]}),`
@@ -286,6 +303,7 @@ router.post("/addgame", (req,res) => {
 
             insert = insert + insertgenres;
 
+            // check for multiple platforms
             let insertplat = `INSERT INTO game_platform (game_id, platform_id)
                                 VALUES`;
             if (Array.isArray(input.platform) == true) {
@@ -299,6 +317,7 @@ router.post("/addgame", (req,res) => {
             }
             insert = insert + insertplat;
 
+            // this will insert all the information for game
             sql.query(insert, (err, rows, fields) => {
                 if (!err) {
                     res.redirect("/game");

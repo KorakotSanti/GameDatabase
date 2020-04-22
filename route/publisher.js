@@ -3,6 +3,7 @@ const router = express.Router();
 const sql = require('../db/database.js');
 let pubname = null;
 
+// get all the publisher for publisher page
 router.get("/publisher", (req,res) => {
     if (pubname != null) {
         sql.query(`SELECT pub_id, pub_name, ifnull(year_established, 'N/A') as est 
@@ -27,11 +28,13 @@ router.get("/publisher", (req,res) => {
     }
 });
 
+// when user submit form to search for publisher based on input name
 router.post("/publisher", (req,res) => {
     pubname = `"%` + req.body.pubname + `%"`;
     res.redirect("/publisher");
 });
 
+// get indivdual publisher page with all its information
 router.get("/publisher/:id", (req,res) => {
     let publisherid = req.params.id;
     sql.query(`SELECT p.pub_id, pub_name, game_id, game_name, ifnull(year_established,'N/A') as est
@@ -39,6 +42,7 @@ router.get("/publisher/:id", (req,res) => {
                 WHERE p.pub_id = ${publisherid};`, (err, rows, fields) => {
 
         if (!err) {
+            // cchecks if publisher has any games in the database
             if (rows.length > 0) {
                 let info = {
                     "pubid": rows[0]['pub_id'],
@@ -82,6 +86,7 @@ router.get("/publisher/:id", (req,res) => {
     })
 });
 
+// get the publisher edit page to edit publisher name or/and year established
 router.get("/publisher/:id/edit", (req,res) => {
     sql.query(`SELECT pub_id, pub_name, ifnull(year_established, '') as est FROM publisher WHERE pub_id = ${req.params.id};`, (err, rows, fields) => {
         if (!err) {
@@ -94,6 +99,7 @@ router.get("/publisher/:id/edit", (req,res) => {
     });
 });
 
+// this is when user submit forms to update the publisher
 router.put("/publisher/:id", (req,res) => {
     let input = req.body;
     if (input.est == '' || input.est == 'N/A') {
