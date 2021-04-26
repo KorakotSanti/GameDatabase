@@ -1,3 +1,3 @@
 # GameDatabase
 
-npm install ejs body-parser express mysql method-override
+Game database site
